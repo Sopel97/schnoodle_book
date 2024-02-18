@@ -1,0 +1,2605 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+@font-face {
+    font-family: "poem_font";
+    src: url("steel-city-comic.regular.ttf");
+}
+.page_inner {
+    width: 18.3cm;
+    height: 27.0cm;
+    margin: 0;
+    padding: 1.35cm 1.35cm 1.35cm 1.35cm;
+}
+.page {
+    page-break-after: always;
+    width: 21cm;
+    height: 29.7cm;
+    background-size: cover;
+    background-image: url('img/cork_background.jpg');
+    position: relative;
+    margin: 0;
+}
+.page_cover {
+    page-break-after: always;
+    width: 21cm;
+    height: 29.7cm;
+    background-size: cover;
+    background-image: url('img/cover_background.jpg');
+    position: relative;
+    margin: 0;
+}
+.title {
+    font-variant-caps: small-caps;
+    font-family: "Times New Roman";
+    text-shadow: 0 0 5mm white, 0 0 5mm white, 0 0 5mm white, 0 0 5mm white, 0 0 5mm white, 0 0 5mm white, 0 0 5mm white, 0 0 5mm white, 0 0 5mm white, 0 0 5mm white;
+    text-align: center;
+    font-size: 7mm;
+    line-height: 7mm;
+    margin: 0;
+    color: darkgreen;
+}
+
+        .title_link {
+            color: inherit;
+            text-decoration: inherit;
+        }
+        body {
+            margin: 0;
+        }
+        .book_title_main_1 {
+            position: absolute;
+            top: 6cm;
+            width: 100%;
+            text-align: center;
+            font-family: "Times New Roman";
+            font-size: 18mm;
+            font-weight: bold;
+            color: transparent;
+        }
+        .book_title_main_2 {
+            position: absolute;
+            top: 8.5cm;
+            width: 100%;
+            text-align: center;
+            font-family: "Times New Roman";
+            font-size: 18mm;
+            font-weight: bold;
+            color: transparent;
+        }
+        .book_title_tome {
+            position: absolute;
+            top: 18cm;
+            width: 100%;
+            text-align: center;
+            font-family: "Times New Roman";
+            font-size: 9mm;
+        }
+        .book_title_date_span {
+            position: absolute;
+            top: 19.5cm;
+            width: 100%;
+            text-align: center;
+            font-family: "Times New Roman";
+            font-size: 9mm;
+        }
+        .burn::before {
+            content: attr(data-text);
+            text-shadow: 0mm 0mm 0.5mm rgba(52,0,0);
+            -webkit-text-stroke-color: rgba(100, 20, 20, 0.5);
+            -webkit-text-stroke-width: 0.7mm;
+        }
+        .burn::after {
+            content: attr(data-text);
+            position: absolute;
+            width:100%;
+            left: 0;
+            top: 0;
+            background-position: inherit;
+            background-size: 100%;
+            background-image: url('img/cover_background_dark.jpg');
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .pin_top_left {
+            position: absolute;
+            top: -6mm;
+            left: 0;
+            z-index: 10000;
+        }
+        .pin_top_right {
+            position: absolute;
+            top: -6mm;
+            right: -5mm;
+            z-index: 10000;
+        }
+        .page_number {
+            position: absolute;
+            width: 100%;
+            bottom: 0mm;
+            margin: 0;
+            text-align: center;
+            left: 0;
+            font-family: "Times New Roman";
+            font-size: 7.5mm;
+            font-weight: bold;
+            text-shadow: 0mm 0mm 1mm #444, 0mm 0mm 1mm #444, 0mm 0mm 1mm #444;
+            color: #999;
+            mix-blend-mode: color-dodge;
+        }
+        .media {
+            position: relative;
+            display: inline-block;
+            margin: 0;
+        }
+        .media_watermark {
+            position: absolute;
+            bottom: 3mm;
+            right: 3mm;
+            text-shadow: 0mm 0mm 1mm black, 0mm 0mm 1mm black, 0mm 0mm 1mm black;
+            font-family: "Times New Roman";
+            margin: 0;
+            color: lightgray;
+            z-index: 1;
+            font-size: 3mm;
+        }
+        .poem_author {
+            text-shadow: 0 0 1mm rgb(240, 220, 190), 0 0 1mm rgb(240, 220, 190); /* so that the text is visible over drawings. matches background color well */
+            font-family: "Times New Roman";
+            margin: 0;
+            width: 105mm;
+            text-align: right;
+            color: black;
+            font-size: 3mm;
+            color: #555;
+        }
+        .media::after {
+          box-shadow: inset 1mm 1mm 1mm 1mm rgba(255,255,255,0.3), inset -1mm -1mm 1mm 1mm rgba(0,0,0,0.1), -1mm -1mm 1mm 1mm rgba(0,0,0,0.15), 1mm 1mm 1mm 1mm rgba(0,0,0,0.25);
+          content: '';
+          position: absolute;
+          top: 0px;
+          left: 0;
+          width: 100%;
+          height: calc(100% - 3px);
+        }
+        blockquote {
+          border-left: 2.75mm;
+          font-size: 3.85mm;
+          margin: -5mm 10mm;
+          margin-bottom: -8mm;
+          padding: 3mm 2.75mm;
+          max-width: 8.5cm;
+          quotes: "\201C""\201D""\2018""\2019";
+        }
+        blockquote:before {
+          color: #aaa;
+          content: open-quote;
+          font-size: 12mm;
+          line-height: 1mm;
+          margin-right: 3mm;
+          position: relative;
+          top: 3mm;
+          left: 3px;
+        }
+        blockquote::after {
+          visibility: hidden;
+          content: close-quote;
+        }
+        blockquote p {
+          display: inline;
+        }
+        .poem {
+            font-size: 4.95mm;
+            margin: 0;
+            margin-left: 15mm;
+            text-shadow: 0 0 1mm rgb(240, 220, 190), 0 0 1mm rgb(240, 220, 190); /* so that the text is visible over drawings. matches background color well */
+        }
+        .poem_card_0 {
+            background-image: url('img/poem_background_0.jpg');
+            background-size: 100%;
+            background-position: bottom right;
+            box-shadow: inset 1mm 1mm 1mm 1mm rgba(255,255,255,0.3), inset -1mm -1mm 1mm 1mm rgba(0,0,0,0.1), -1mm -1mm 1mm 1mm rgba(0,0,0,0.15), 1mm 1mm 1mm 1mm rgba(0,0,0,0.25);
+            padding: 3mm 0mm 3mm 0mm;
+            position: relative;
+            margin-top: 2mm;
+        }
+        .poem_card_1 {
+            background-image: url('img/poem_background_1.jpg');
+            background-size: 100%;
+            background-position: bottom right;
+            box-shadow: inset 1mm 1mm 1mm 1mm rgba(255,255,255,0.3), inset -1mm -1mm 1mm 1mm rgba(0,0,0,0.1), -1mm -1mm 1mm 1mm rgba(0,0,0,0.15), 1mm 1mm 1mm 1mm rgba(0,0,0,0.25);
+            padding: 3mm 0mm 3mm 0mm;
+            position: relative;
+            margin-top: 2mm;
+        }
+        .poem_card_2 {
+            background-image: url('img/poem_background_2.jpg');
+            background-size: 100%;
+            background-position: bottom right;
+            box-shadow: inset 1mm 1mm 1mm 1mm rgba(255,255,255,0.3), inset -1mm -1mm 1mm 1mm rgba(0,0,0,0.1), -1mm -1mm 1mm 1mm rgba(0,0,0,0.15), 1mm 1mm 1mm 1mm rgba(0,0,0,0.25);
+            padding: 3mm 0mm 3mm 0mm;
+            position: relative;
+            margin-top: 2mm;
+        }
+        .poem_card_3 {
+            background-image: url('img/poem_background_3.jpg');
+            background-size: 100%;
+            background-position: bottom right;
+            box-shadow: inset 1mm 1mm 1mm 1mm rgba(255,255,255,0.3), inset -1mm -1mm 1mm 1mm rgba(0,0,0,0.1), -1mm -1mm 1mm 1mm rgba(0,0,0,0.15), 1mm 1mm 1mm 1mm rgba(0,0,0,0.25);
+            padding: 3mm 0mm 3mm 0mm;
+            position: relative;
+            margin-top: 2mm;
+        }
+    
+.media_image {
+    max-width: 18.3cm;
+    box-shadow: -1mm -1mm 1mm 1mm rgba(0,0,0,0.15),1mm 1mm 1mm 1mm rgba(0,0,0,0.25);
+}
+</style></head>
+<body>
+<div class="page_cover">
+<div class="book_title_main_1 burn" data-text="SchnoodleDoodleDo"></div>
+<div class="book_title_main_2 burn" data-text="Poetry Book"></div>
+<div class="book_title_tome burn" data-text="Tome XVIII"></div>
+<div class="book_title_date_span burn" data-text="15 February 2023 - 22 April 2023"></div>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/cats/comments/112vl5e/the_cat_which_was_rescued_in_the_129th_hour_of/">The cat, which was rescued in the 129th hour of the earthquake in Gaziantep/ Turkiye, did not leave the fire crews that saved it. They named it a "Enkaz"(Means rubble in Turkish) . Firefighter Ali Çakas said, "If we can't find the owner, I will own it."</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\112vl5e.jpg" class="media_image" style="max-height:11.4298cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/Virginemdeam</p>
+</div>
+<div class="poem_card_3">
+<p class="prompt"><blockquote><i>’His smile when the cat did the lil boop….’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">let me <i>touch you</i>, human so i know that you are real...<br/>confusion all around me, then my world came crashing down<br/>n i can’t find my humans...<br/>there is rubble, all around<br/>Nothing there seemed right...<br/>but then i heard your voices, n i saw a little light<br/>you <i>rescued me</i>, n i was Free!<br/>I’m scared,<br/>my world is broken...<br/>I don’t want to <i>lose</i><br/>again</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">1</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/AnimalsBeingBros/comments/1136bjg/the_cat_saved_by_search_and_rescue_teams_in/">The cat saved by search and rescue teams in Turkey from wreckage has not been leaving the rescue workers for days. Wherever they go, he goes with them</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\1136bjg.jpg" class="media_image" style="max-height:12.8141cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/tinyblackberry-</p>
+</div>
+<div class="poem_card_1">
+<p class="prompt"><blockquote><i>’We named it Enkaz (rubble), because we brought it out of hell...’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">...I don't know how this happened, n i can't believe it's real...<br/>i need someone to comfort me, n help my heart to heal<br/>confusion all around me, then my world came crashing down<br/>now i can’t find my humans...<br/>there is rubble, all around<br/>Nothing there seemed right...<br/>but then i heard your voices, n i saw a little light<br/>you <i>rescued me</i>, n i was Free!<br/>I’m scared,<br/>my world is broken...<br/>I don’t want to <i>lose</i><br/>again...</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">2</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/113efup/kanga_had_his_first_swimming_lesson_today_totally/">Kanga had his first swimming lesson today. Totally wasn’t nervous.</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\113efup.jpg" class="media_image" style="max-height:14.071400000000002cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/TheKrs1</p>
+</div>
+<div class="poem_card_2">
+<p class="prompt"><blockquote><i>’We aren’t rich but we are DINKs*’…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">i am the dog ~ so Lucky, me<br/>am do the HyDrOtHeRaPy<br/>i wear the little floaty vest,<br/>(a little scare... i try my best...)<br/>my humans watch, it brings me JoY<br/>to hear them call me<br/>Goodest Buoy <sup>;@)</sup><br/>the other humans call them DINKs -<br/>they teach us ‘Swim’<br/>so we<br/>don’t<br/>Sinks<br/>(edit: <i>please tell Kanga i love him</i>)</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">3</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/113efup/kanga_had_his_first_swimming_lesson_today_totally/">Kanga had his first swimming lesson today. Totally wasn’t nervous.</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\113efup.jpg" class="media_image" style="max-height:17.8433cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/TheKrs1</p>
+</div>
+<div class="poem_card_0">
+<p class="prompt"><blockquote><i>’Keep paddling or die keep paddling or die keep paddling or die.’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font"><i>’Keep paddling...</i>’<br/>i think i see my human! <i>0oooooo</i> my Eyes are open W I D E . . .<br/>am almost there - <i>i made it</i>, Yes! am such a Happy fellow <sup>;@)</sup><br/>(...i hope nobody noticed<br/>that i turned the water<br/>yellow...)</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">4</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/113nfbw/rescue_dogs_excited_for_their_daily_run/">Rescue dogs excited for their daily run</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\113nfbw.jpg" class="media_image" style="max-height:12.496600000000003cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/Mr_R0mpers</p>
+</div>
+<div class="poem_card_2">
+<p class="prompt"><blockquote><i>’I will watch this anytime I see it…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">i’m ready to <i>RUN!</i><br/>i’ll show you my <i>zoomin -</i><br/>this  how it is Done <sup>;@)</sup><br/>the camera i’m wearing<br/>up High on my back,<br/>to BEACH I am <i>Tearing</i> -<br/>the WaTeR <i>ATTAC!</i><br/>the humans make Way<br/>as so Eager i <i>DASH</i><br/>This dog’s  Here to PLAY<br/>as i make my HUGE <i>SPLASH!!</i><br/>a memory saved now,<br/>for All to enjoy<br/>my Biggest BoW WOW -<br/>I’m a Famous<br/>Good Boy!<br/>&nbsp;</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">5</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/cats/comments/113td4k/tin_foil_doesnt_work_what_keeps_them_off_the/">Tin foil doesn't work? what keeps them off the counter?</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\113td4k.jpg" class="media_image" style="max-height:16.090700000000002cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/General_Limit_9953</p>
+</div>
+<div class="poem_card_3">
+<p class="prompt"><blockquote><i>’…they’re not on the counter now; they’re on the tinfoil’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">Thank you, friend - you very kind<br/>make sure my counter <i>foil lined</i> <sup>;}</sup><br/>it makes me feel <i>special</i>, see -<br/>you made a spot that’s just for me<br/>n now the crumbs i find to lick,<br/>my foil PROTEC, so they don’t stick!<br/>(you tried to keep me <i>off</i>, but then<br/>discovered that<br/>you Foiled, again!)</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">6</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/11bk7c8/the_first_day_of_work_of_the_baby_shepherd/">The first day of work of the baby shepherd.</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11bk7c8.jpg" class="media_image" style="max-height:15.5065cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/Piehnat</p>
+</div>
+<div class="poem_card_3">
+<p class="prompt"><blockquote><i>’Dog: I’m the boss of you!
+Sheep: That’s nice, dear. Now come along.’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">no worries, guys - i’m Here!!<br/>i’m just a little tiny pup,<br/>there’s Nothing you should fear <sup><sup>:@)</sup></sup><br/>am learn the work like dad n mom<br/>n tell you where to go!<br/>I’ll lead the Way! n keep you calm,<br/><i>Someday, you’ll ‘boss us’, maybe...</i><br/><i>we’re Sheep - we’ll keep you in our fold</i>,<br/><i>for now, you are</i><br/><i>our baby...</i></font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">7</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/11bq0qx/what_the_heck_mom/">what the heck mom</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11bq0qx.jpg" class="media_image" style="max-height:12.179100000000002cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/literalcorpse</p>
+</div>
+<div class="poem_card_3">
+<p class="prompt"><blockquote><i>’She's training them. "You wanna be a cat!? You gotta be speed’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">I am your Mom, n You my kits!<br/>I’ve nursed n coddled best i can,<br/>but now is time you understand...<br/>there’s <i>Tactics</i> Every cat should know -<br/>we HeCk things Up<br/>n then we <i>GO!!</i><br/>So lemme shake you up a bit  -<br/>ReAcT! <i>Revenge</i> - be Brave, small kit!<br/>n most important you will need<br/>to  Get out <i>Fast</i> -<br/>you gotta<br/><i>speed!</i><br/>so Do the things you’re ‘Not Allowed’<br/>n you will make your momma Proud <sup>;}</sup><br/>(I only hope you learn from me,<br/>n <sup><i>little</i></sup><sup><i>Assholes</i></sup><br/>you will be)</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">8</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/cats/comments/11bnp1w/how_do_you_keep_your_cat_out_of_the_crib_more/">How do you keep your cat out of the crib? More details in comments.</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11bnp1w.jpg" class="media_image" style="max-height:12.268cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/Woooahnellie</p>
+</div>
+<div class="poem_card_3">
+<p class="prompt"><blockquote><i>’Fox doesn’t mind any crying, flailing or anything else. He was also the one who would lay on my belly during pregnancy…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">i am the Cat, n yes it’s true<br/>i don’t mind things the babies do<br/>Long before the child was born,<br/>n oath to you, dear mom, was sworn<br/>i’d lie n feel your belly grow,<br/>(<i>it’s momma’s Love in there, i know</i>...)<br/>a promise deep  inside my heart:<br/>Protect this human from the start!<br/>this tiny one, who flails n cries<br/>he needs me Most, i realize<br/>n when he’s laying down to sleep,<br/>My Job<br/>Forever<br/><i>Safe</i><br/>to keep</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">9</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/cats/comments/11c9x5h/my_so_got_a_buggy_so_she_can_take_her_blind/">My SO got a buggy so she can take her blind bengal and his brother outside. We got a lot of hate for it, what do you guys thinks? Cringe or no?</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11c9x5h.jpg" class="media_image" style="max-height:11.379000000000001cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/R_OP_1</p>
+</div>
+<div class="poem_card_0">
+<p class="prompt"><blockquote><i>’”just for some cats“’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">they’re missing a lot if they don’t understand -<br/><i>’just for some cats</i>’... n the things they demand...<br/>you feed a small kitten you find as a stray,<br/>the days turn to weeks, then months to a year,<br/>(you forget what your life was before he  appeared...)<br/>n then it occurs ‘<i>oh, this cat needs a bro!</i>’<br/>as off to the shelter you eagerly go<br/>now bonded together, you have a cat pair,<br/>n all that you own you are willing to share<br/>the bed that was yours, n the table to eat,<br/>happily danced on with little cat feet <sup>:}</sup><sup><sup>;}</sup></sup><br/>They’ve taken control now, your heart n your soul,<br/><i>’hey, i got you a Buggy! Let’s go for a stroll...</i>’<br/>(you know it’s for You - you can’t leave them behind)<br/>evermore on your mind</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">10</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/cats/comments/11c9x5h/my_so_got_a_buggy_so_she_can_take_her_blind/">My SO got a buggy so she can take her blind bengal and his brother outside. We got a lot of hate for it, what do you guys thinks? Cringe or no?</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11c9x5h.jpg" class="media_image" style="max-height:13.715800000000002cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/R_OP_1</p>
+</div>
+<div class="poem_card_0">
+<p class="prompt"><blockquote><i>’why the fuck not*…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">the sweaters you knitted, a stroller for two,<br/><i>purr</i>fectly fitted ~ we’re coming with you<br/>Here at the house we’ve got all we could want,<br/>(how ‘bout a mouse, just for pleasure, to hunt ?)<br/>but <i>Always</i> you give Everything that we need,<br/>(the lives that we live are entitled, indeed)<br/>but some will be snappy - <i>’Oooooh, ThEy’Ve got a LoT...</i>’<br/>we’re Cats n we’re HAPPY<br/>so<br/><b>WHY the FUCK NOT</b><br/>edit (<i>thanks to</i> u/Squishmitt6 <i>for the ‘sweet’ inspurration....</i>)</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">11</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/11dlgm0/i_interrupted_their_meeting_what_are_they_plotting/">I interrupted their meeting. What are they plotting?</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11dlgm0.jpg" class="media_image" style="max-height:12.0013cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/Peircen20</p>
+</div>
+<div class="poem_card_2">
+<p class="prompt"><blockquote><i>’She is our smartest cat for sure, and most def the ring leader..’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">...<i>Hold still, my cohorts</i> - just listen to me<br/>Don't make a Move! we are Partners, we three<br/>the humans <i>suspicious</i>, so Caution! <i>Beware</i><br/>don't show no reaction -<br/>just Do your Best <i>Stare</i>.. .<br/>Orange boy - you're Good with that innocent gaze,<br/>Void friend - you're Best with your mYsTiCaL ways!<br/>but me  - i just <i>freeze</i> when i'm caught in their sights,<br/>(they laugh n they call me a '<i>Deer in Headlights</i>')<br/>so then they'll move on, about us they've forgot,<br/>that's when we can Plan - oh, we'll  <i>Scheme</i> n we'll pLoT!<br/>tonight when they're sleeping, ATTACK with SURPRISE!<br/>Farewell, dear friend humans<br/>you've Met<br/>your<br/>demise....</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">12</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/cats/comments/11dj2yr/a_photo_of_the_guy_who_barfed_on_me_at_4am_while/">A photo of the guy who barfed on me at 4am while I was dead asleep</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11dj2yr.jpg" class="media_image" style="max-height:12.903cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/Chazm0dan</p>
+</div>
+<div class="poem_card_2">
+<p class="prompt"><blockquote><i>’“I’ll fukken do it again”’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">I am the cat, n YeS, it’s true -<br/>I am the One who BaRfEd on you<br/>I could’ve made it off the bed,<br/>n messed the floor below, instead,<br/><i>to see your toes squish in the night!</i><br/><i>so unsuspecting you would rise</i><br/><i>n Step into my BARF surprise!</i><br/>alas, i stayed up on the bed<br/>n chose to barf<br/>On you<br/>instead...<br/>for I am Cat,<br/>n you’re my ‘fren’... <sup>;}</sup><br/>All<br/>again...</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">13</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/11empa1/starbucks_told_us_there_were_no_pup_cups_today_oc/">Starbucks told us there were no pup cups today. (OC).</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11empa1.jpg" class="media_image" style="max-height:13.753900000000002cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/Slight-Struggle2662</p>
+</div>
+<div class="poem_card_1">
+<p class="prompt"><blockquote><i>’Watch me drive to the Starbucks across town.We are getting that pup cup…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">my human said <i>‘we Going’!</i> so excited i jumped in <sup>:@)</sup><br/>am sat where i’m suppose to - let the PuP CuP trip <i>begin!</i><br/>so eager for my Favrit  treat they’ve gotten me before -<br/>we heading for the STARPUPS  place  (them pupcups i Adore!)<br/>i barely can control ExCiTe  as human goes inside..<br/><i>...he’s Coming! Where’s my pupcup ?! Oh, he’s doin me a hide...</i><br/>but when he opens up the door, a Smile i do not see<br/>n then his words cut thru my soul -<br/>the disappoint i cannot hide, so painful is my feel <sup>:@(</sup><br/>but then he says <i>’Just hang on, pup!</i>’ n then he <i>Spins the Wheel</i><br/>next thing i know we race ‘cross town, for what i’m <i>dreaming</i> of...<br/>a special trip he made for Me -<br/>a Pupcup Full of Love!</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">14</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/11f8y8k/oc_my_cat_showed_up_at_my_house_like_this_today/">[OC] My cat showed up at my house like this today. Apparently, we have a cat lover in our street.</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11f8y8k.jpg" class="media_image" style="max-height:10.388399999999999cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/Nabo92</p>
+</div>
+<div class="poem_card_1">
+<p class="prompt"><blockquote><i>’Who is just out there kissing random cats…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">Dear diary, a <i>meowstery</i> -<br/>my humans muse <i>’Who’s Kissing me??’</i><br/>today i left my loving home,<br/>n did my usual local roam<br/>when suddenly, an unknown Miss<br/>approaches me! n asks for ‘<i>Kiss’</i>...<br/>her lips a fire engine red,<br/>she left a kiss upon my head<br/>before i knew just what to do<br/>her gentle kiss<br/>turned into Two!<br/>then 3, n 4...another - 5 !<br/>this stranger made me feel ALIVE!<br/>n suddenly my cat heart Swell <sup>;}</sup><br/>alas, i shall not Kiss n Tell...<br/>our secret safe between us two -<br/>my humans left<br/>to wonder</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">15</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/cats/comments/11he46o/so_im_taking_another_hospice_cat/">So I’m taking another hospice cat…</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11he46o.jpg" class="media_image" style="max-height:14.515900000000002cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/GlamourCatNYC</p>
+</div>
+<div class="poem_card_1">
+<p class="prompt"><blockquote><i>’Thank you for giving him a lap to curl up in for the rest of his days’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">to take a nap,<br/>a place i’ve never known...<br/>a kindly friend<br/>with time to spend -<br/>a <i>human</i> of my own<br/>imagine that!<br/>for me, a cat,<br/>alone, my whole life through...<br/>it used to seem<br/>was just a dream,<br/>You’ll make it All<br/>come True<br/>(<i>best wishes to you n your handsome young man,</i> u/GlamourCatNYC)</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">16</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/AnimalsBeingDerps/comments/11hyzwx/thirsty/">Thirsty</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11hyzwx.jpg" class="media_image" style="max-height:14.198400000000001cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/RyotoYokoyama</p>
+</div>
+<div class="poem_card_2">
+<p class="prompt"><blockquote><i>’How kind of you to offer your head as a stepping stone to the water, since this poor cat has clearly never had water in his life’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">a bowl of water on the floor<br/>(for peasant cats,  not Me...)<br/>i much prefer the shower more -<br/>my StEpPiNg StOnE you’ll be <sup>;}</sup><br/>you humans strange - all NaKeD get,<br/>your clothes left on the floor<br/>then stand inside this RoOm of WeT!<br/>i watch the water <i>pour</i>...<br/>so i will take my place above<br/>n perch upon your head<br/>the Waterfall is what i Love -<br/>i’ll drink from here<br/>instead</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">17</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/11hxh7f/i_regret_this_toy/">I regret this toy</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11hxh7f.jpg" class="media_image" style="max-height:13.665000000000003cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/heybuddy93</p>
+</div>
+<div class="poem_card_0">
+<p class="prompt"><blockquote><i>’Thought the cat was on fire’*…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">alas, the feathered toy is dead,<br/>the one i most desire...<br/>much pleasure, me, to RiP n ShReD !<br/>it turned me into<br/><i>FIRE</i>...<br/>human, will you ever learn -<br/>that I am not to blame!<br/>the toys you give must Crash n BURN<br/>as i enjoy<br/>the Flame...<br/>n as we smolder on the floor,<br/>my eyes are burning bright...<br/>I lie n wait for <i>one toy more</i><br/>my Passion to<br/>Ignite!</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">18</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/11i9qog/whats_the_dog_thinking_about/">What's the dog thinking about?</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11i9qog.jpg" class="media_image" style="max-height:10.159800000000002cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/fat_old_boy</p>
+</div>
+<div class="poem_card_3">
+<p class="prompt"><blockquote><i>’what does it TRULY MEAN to be a good boy?”’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">i am the pup, much wonder,  me -<br/>what <i>truly</i> could a ‘good boy’  be ?<br/>is one who learns to listen well,<br/>n do the things the humans tell<br/>not ChEw the places not allowed,<br/>(am try n make my human <i>Proud</i>...)<br/>i wait so patient by the door<br/>to pee outside, not on the floor...<br/>n as i sit here on the sand,<br/>the ebb n flow... i understand!<br/>just like the waves go in n out,<br/>my human does! but has no doubt<br/>when he comes home, back through that door,<br/>there’s just One thing<br/>he can be sure<br/>that i will greet him, once again <sup>;@)</sup><br/>n let him know<br/>he holds me close against his chest,<br/>says not just ‘Good’...<br/>he calls me<br/><i>’Best’</i></font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">19</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/pics/comments/11j1ea5/i_got_tattoo_of_my_dumb_cats_and_i_love_it/">I got tattoo of my dumb cats and I love it</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11j1ea5.jpg" class="media_image" style="max-height:10.8329cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/CrimsonCards</p>
+</div>
+<div class="poem_card_3">
+<p class="prompt"><blockquote><i>’Upon first glance, I saw a cat in a toilet paper roll…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">some may glance, n say <i>’WhAt’s ThAt ??’</i><br/><i>’a sTuPiD toilet paper Cat’ ?!</i><br/>they smirk n sneer, n some may judge,<br/>We are your Cats<br/><i>we will not Budge...</i><br/>we plant ourselves in different ways -<br/>a cat tree hole, in box we stays<br/>or maybe pLoPpEd down on the floor -<br/>no matter where,<br/>one thing's for sure<br/><i>Unanimous,</i> that  if we FiTs<br/>then Here  is where<br/>we gonna<br/>SiTs<br/>Upon her arm, she wears our Tats<br/>Forever <i>Stay</i><br/>her Loving<br/>Cats</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">20</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/11jmzth/practicing_self_control/">Practicing self control</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11jmzth.jpg" class="media_image" style="max-height:12.763300000000001cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/Sufficient-Bug-9112</p>
+</div>
+<div class="poem_card_2">
+<p class="prompt"><blockquote><i>’You can tell kitty is thinking reaaaaal hard about what to do…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">am try so hard to understand<br/>your gentle human touch...<br/>cuz every time i feel your hand<br/>i WaNt to BiTe<br/><i>so much!</i><br/>n when the playful scritch begin,<br/>i wanna ScRiTcH  you back <sup>;}</sup><br/>you stroke my face... my nose, my chin<br/>my Cat reflex -<br/><i>ATTAC !</i><br/>but then - the ‘NYET’ you say again!<br/>i Freeze, n gaze above...<br/>into your eyes, my gentle fren,<br/>n think<br/>This maybe<br/><i>Love ?</i></font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">21</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/11jxa6b/been_feeding_a_stray_cat_for_a_few_days_and_today/">Been feeding a stray cat for a few days, and today i let her in the shop because of the rain. He immediately felt like home, so i decided to let him stay in his new home.</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11jxa6b.jpg" class="media_image" style="max-height:10.032800000000002cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/thunderc8</p>
+</div>
+<div class="poem_card_0">
+<p class="prompt"><blockquote><i>’Couldn't resist seeing him asleep…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">now i lay me down to sleep,<br/>i pray this human friend will keep<br/>been feeding me from day to day,<br/>no longer do i want to stray...<br/>today he opened up the door,<br/>n i don’t feel alone no more!<br/>n like the rain, my sad tears stop -<br/>am safe n warm, here in the shop<br/><i>’oh, let me stay</i>’ my heart purrsist!<br/>then I know what he can’t resist...<br/>am curled up now, in little ball,<br/>he sees me here - so helpless, small<br/>no longer will i ever roam,<br/>I found my Love -<br/>this friend<br/>my <i>Home</i></font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">22</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/nextfuckinglevel/comments/11jvhof/elephants_in_cambodia_have_learned_to_exploit/">Elephants in Cambodia have learned to exploit their right of way and stop passing sugar cane trucks to steal a snack.</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11jvhof.jpg" class="media_image" style="max-height:11.823500000000003cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/SamMee514</p>
+</div>
+<div class="poem_card_1">
+<p class="prompt"><blockquote><i>’Perfect 0.5% road tax being collected…Smart enough to know where to cross the street too’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">the humans have learned what the elephants want -<br/>Respect n some <i>kindness</i> (n Never to <i>hunt</i> . . .)<br/>n maybe, perhaps, if they <i>really Do</i> care,<br/>the sweets that they gather -<br/>for us, a small share...<br/>we wait by the road - <i>oh, we Hoping to dine!</i><br/>(we know that  it’s safe, cuz we stand by our sign)<br/>we Trumpeting HAPPY  - ExCiTe can’t restrain,<br/>for here, once again,<br/>comes our <i>Sweet Sugarcane!</i><br/>the  truck OverFlowing! the cane up in stacks,<br/>for  land that we share - this our Friendly road tax<br/>he stops for a moment, a bundle we get<br/><i>’Thank you, friend human</i> -<br/><i>We’ll Never Forget!</i>’</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">23</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/CozyPlaces/comments/11k13gy/the_coziest_place_in_my_dads_100_year_old_farm/">The coziest place in my dads 100+ year old farm house in Ontario</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11k13gy.jpg" class="media_image" style="max-height:13.753900000000002cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/Dad_breath</p>
+</div>
+<div class="poem_card_3">
+<p class="prompt"><blockquote><i>’he wears his vest outside while we’re in the country’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">now i lay me down to sleep<br/>by grandpa’s cozy fire<br/>my human in my thoughts i keep -<br/><i>protect him</i> my desire...<br/>for I am Dog -  is what i Do,<br/>with him i know i’m blessed<br/>i know that he PROTECs me, too<br/>That’s why i wear the vest <sup>;@)</sup><br/><i>Coyote Face!</i> to some, it seems<br/>that’s what they frightened of<br/>but as i lie here, in my dreams<br/>i’m <i>safe,</i> in vest<br/>of Love</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">24</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/AnimalsBeingDerps/comments/11komyq/i_can_do_that/">I can do that..</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11komyq.jpg" class="media_image" style="max-height:17.1702cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/majedhazmi</p>
+</div>
+<div class="poem_card_0">
+<p class="prompt"><blockquote><i>’same
+I mean me
+I do that’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">I see you, friend - i’ll do the same!<br/>the things that humans do<br/>EvErYtHiNg you do’s a Game -<br/>I wanna do it, too!<br/>i’m not a Dog, but i mean Me<br/>your loving pal - friend Horse<br/>cuz I can do it All, you see ?<br/>I’ll Try...<br/>of course!</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">25</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/cats/comments/11kkbc4/my_cat_sits_and_stares_in_this_exact_position/">My cat sits and stares in this exact position every night. What is she looking at?</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11kkbc4.jpg" class="media_image" style="max-height:12.407700000000002cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/Vandermilf</p>
+</div>
+<div class="poem_card_1">
+<p class="prompt"><blockquote><i>’my cat will watch me kill a bug, and watch me throw it away then go back to look for it…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">once upon a long ago,<br/>(i can’t remember when...)<br/>am <i>sure</i> i saw a BuG, i know,<br/>my human SqUiShEd,<br/>n then...<br/>he toss in to the  fire place -<br/>i sat n watched it <i>burn</i>...<br/>so now i gaze in <i>darkest space</i>,<br/>n wait for bugs return...<br/>n in that distant meowmory<br/>i saw him BuRn like ToAsT...<br/>to Some day see<br/>my tiny BuG friend<br/><i>ghost</i>.....</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">26</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/cats/comments/11ksft8/asked_the_old_lady_to_please_not_bring_a_cat_home/">Asked the old lady to please not bring a cat home. Now I got a little buddy.</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11ksft8.jpg" class="media_image" style="max-height:9.664499999999999cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/odd-Preference916</p>
+</div>
+<div class="poem_card_3">
+<p class="prompt"><blockquote><i>’Cats love the people that don't like cats. This man’s lap will become the cats favorite spot*’…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">I am the Cat, n yes, is true<br/>you don’t like Me,<br/>so  I like <i>You</i> <sup>;}</sup><br/>i saunter in, n you don’t care,<br/>(it’s like you never see me there)<br/>sometimes you sneer with DiSaPpRoVe,<br/>i <i>circle you</i>...<br/>you do not move...<br/>i’ve chosen where i’ll take a nap<br/>it’s up upon your human lap<br/>i see you <i>tense</i>... anticipate<br/><i>’Oh, NO - not CAT!</i>’...<br/>but it’s too late<br/>i <i>crouch</i>.... then L<sup>a<sup>unch</sup>-</sup>the <i>purrfect</i> land!<br/>now I will make you understand....<br/>am curled up in a tiny ball -<br/>This my Favorite spot of all<br/>for it is I<br/>who’s chosen YOU!<br/>that you can do...</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">27</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/11kvt3v/they_really_are_silly_creatures/">They really are silly creatures.</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11kvt3v.jpg" class="media_image" style="max-height:10.744000000000002cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/tommos</p>
+</div>
+<div class="poem_card_0">
+<p class="prompt"><blockquote><i>’Release the inner panda…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">without a Care! so wild n free!<br/>n tho my Home is in a zoo,<br/>No worries, me -<br/>I’ll make it do...<br/>there’s Some with More ~ n Some with Less,<br/>but You must find<br/>your Happiness <sup>:)</sup><br/>For those who make the best they can<br/>with what they have<br/>they understand<br/>that  Play is <i>Good!</i>  n Good is Fun,<br/>so let me show you how it’s done<br/>i hear the humans down below,<br/>as i put on my PaNdA sHoW<br/>n maybe, for a little while,<br/>their heart is light! I make them smile<br/>n I’ve done Well - at least i tried,<br/><i>Release the Panda</i><br/>there<br/>inside</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">28</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/11l8fak/doggo_is_great_with_ladies/">Doggo is great with ladies</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11l8fak.jpg" class="media_image" style="max-height:14.833400000000001cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/ReliableRoommate</p>
+</div>
+<div class="poem_card_0">
+<p class="prompt"><blockquote><i>’I'm thinking he has done this before*…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">i know what i’m doing, i’ve done it before,<br/>it’s RuBs on my BeLLy that i most adore!<br/>i circle my victims  - the ladies i found,<br/>my leash in my mouth -<br/>then i<br/>drop<br/>to the ground<br/>Commence the Excitement! the ‘<i>Ooooos</i>’ n the <i>’Aaaaaws</i>’<br/>they Rubbing my Belly ~ i’m Shaking my paws!<br/>n there, in that moment, the Thrill of Success<br/>Surrounded by Love<br/>n complete<br/>Happiness!</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">29</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/11m1a9n/my_adventure_puppy_turned_17_years_old_today/">My adventure puppy turned 17 years old today ❤️</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11m1a9n.jpg" class="media_image" style="max-height:14.655600000000002cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/Alpinekiwi</p>
+</div>
+<div class="poem_card_0">
+<p class="prompt"><blockquote><i>’He definitely still is very aww!’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">i’m maybe not as b <sup>o</sup>u <sup>n</sup>c <sup>y</sup>as when i was just a pup,<br/>sometimes my legs  - they wobble to n fro...<br/>sometimes i’m kinda achy when i’m tryin’ to get up,<br/>still lovin’ all those walks<br/>but i go<br/><i>s l o w . . .</i><br/>i sure do love those belly rubs, n kisses on my head,<br/>i still can sit, n give a gentle paw<br/>i know my human loves me, n when i lay down for bed<br/>i hear it in my heart -<br/>they still say<br/><i>awwww</i>...</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">30</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/therewasanattempt/comments/11mqi2t/to_make_a_nest/">To make a nest</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11mqi2t.jpg" class="media_image" style="max-height:14.833400000000001cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/goldbutthole</p>
+</div>
+<div class="poem_card_2">
+<p class="prompt"><blockquote><i>’You try finding 500 twigs indoors…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">I am the bird<br/>you keep inside<br/>my life - AbSuRd!<br/>i’ve been<br/>denied <sup>:(</sup><br/>i had to <i>BEG</i><br/>to build my nest!<br/>i laid n egg<br/>but i won’t fuss -<br/>this mat will do<br/>will CrAp<br/>on you....<br/>&nbsp;</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">31</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/11mx0aa/oc_freshly_dried_laundry_makes_the_best_bed/">[OC] Freshly dried laundry makes the best bed 😭</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11mx0aa.jpg" class="media_image" style="max-height:14.541300000000001cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/chunkymonkeycupcake</p>
+</div>
+<div class="poem_card_2">
+<p class="poem"><font face="poem_font">now i lay me down to sleep,<br/>am snuggled <i>warm</i> in laundry heap<br/>my world so Purrfect here, it seems<br/>as i drift off in kitty dreams...<br/>n as i slumber i become<br/>the <i>Handsome  Prince</i> - where i came from!<br/>Behold my kingdom, fanciful<br/>where Every cat<br/>is <i>Beautiful</i>...<br/>so <i>peaceful</i> here, upon my throne -<br/>am Blessed with human of my own <sup>;}</sup><br/>n when i wake, i’ll look at you,<br/>my Friend, who made<br/>my dreams<br/>come true!<br/>&nbsp;</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">32</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/nextfuckinglevel/comments/11nk2ct/this_owner_managed_to_teach_his_cat_some_cool/">This owner managed to teach his cat some cool tricks that normally cats won't do.</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11nk2ct.jpg" class="media_image" style="max-height:14.744500000000002cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/qnathomj6567</p>
+</div>
+<div class="poem_card_2">
+<p class="prompt"><blockquote><i>’Tell that to /r/OneOrangeBraincell, they regularly lose access to the one they have…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">I am the Cat,  n i do well<br/>surviving on my OnE BrAiN CeLL<br/>no need for extra - one is fine,<br/>n i enjoy this Life of mine <sup>;}</sup><br/>my soft orange head is filled with Joy<br/>when humans tell me I’m ‘Good Boy’<br/>just that one thought’s enough to share,<br/>cuz i don’t have<br/>no brain<br/>to spare...</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">33</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/11nsqn1/the_neighborhood_stray_approached_our_back_door/">The neighborhood stray approached our back door and wants food/shelter. What do we do?!</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11nsqn1.jpg" class="media_image" style="max-height:11.823500000000003cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/Adammot</p>
+</div>
+<div class="poem_card_2">
+<p class="prompt"><blockquote><i>’Yeah, the friendlier, the cat, the more likley, it's used to manipulating humans’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">I am the Cat, so friendly, me,<br/>MaNiPuLaTe, the humans, see ?<br/>(this Reddit friend, he knows, because<br/>he Heavy, with<br/>the <i>Comma  pause....</i>)<br/>n just like him, i Stop, n stare,<br/>Take in the Friends,<br/>who see me,<br/>there...<br/><i>dRaMaTiC pause,</i><br/>then i act Gaunt,<br/>it works, to get me<br/>What<br/>i Want...<br/>&nbsp;</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">34</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/11nwrvr/ocbefriended_and_been_feeding_this_stray_dog/">[OC]Befriended and been feeding this stray dog recently, she follows me home from the main street, the legshake, dance of joy and love in her eyes so heartwarming</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11nwrvr.jpg" class="media_image" style="max-height:12.636300000000002cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/ascension1110</p>
+</div>
+<div class="poem_card_1">
+<p class="prompt"><blockquote><i>’How could a dog that friendly and lovable be left as a stray’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">i’m Dancing for <i>Joy!</i> n my butt wiggle proves<br/>that You are the One who was destined to be<br/>My human <i>forever</i> -<br/>the one Meant for Me <sup>:@)</sup><br/>am done with the lonely, n you’re my best chance<br/>for Lovin me <i>only</i><br/>so i Do the DaNcE<br/>Together, with You, friend<br/>is where i belong<br/>&nbsp;<br/><i>clearly the Bestest girl</i>, u/ascension1110 ~ <i>i hope you find much happiness together</i></font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">35</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/cats/comments/11nydg5/she_was_very_concerned_that_i_hadnt_eaten_dinner/">She was very concerned that I hadn’t eaten dinner yet and stole this to bring it to my bedroom (her favorite treat is cheddar cheese)</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11nydg5.jpg" class="media_image" style="max-height:14.300000000000002cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/that_goon</p>
+</div>
+<div class="poem_card_0">
+<p class="prompt"><blockquote><i>’You are bad at hunting Cheese, I shall show you…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">Human, I know what you want!<br/>alas, you failing at the hunt<br/>so i will show you - make you Please<br/>am share with you<br/>a hand of cheese <sup>;}</sup><br/>it wasn’t hard! am very skill<br/>at bringing you your Biggest thrill<br/>so stay in bed, if you need rest,<br/>n Trust me, friend -<br/>I’ll do the rest...</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">36</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/11ogvhu/when_you_cant_read_the_body_language/">When you can't read the body language</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11ogvhu.jpg" class="media_image" style="max-height:16.2685cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/vladgrinch</p>
+</div>
+<div class="poem_card_1">
+<p class="prompt"><blockquote><i>’It was like little cutie tried to say "But.. why? I just.. fine’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">Oh, <i>Hey there, you guys !</i> Whatcha Doin ~ What’s up ?<br/>you wanna hang out n be frens ? My name’s PuP <sup>:@)</sup><br/>but maybe is time a new Frenship begin <sup>:@)</sup><br/>so... you guys got Tails !<br/>Hey, but ... why aren’t they Waggin ?<br/>aw, don’t look so grouchy... your hearts kinda saggin’ ?<br/>well I’m here for Happy! I bring the Sun shine<br/>I just...<br/><i>fine...</i><br/>&nbsp;</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">37</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/AnimalsBeingBros/comments/11onnqc/best_friends/">Best friends</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11onnqc.jpg" class="media_image" style="max-height:13.665000000000003cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/yadavhimanshu961</p>
+</div>
+<div class="poem_card_0">
+<p class="prompt"><blockquote><i>’Tail, then foot. Then kiss’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">just wait til he gets <i>close enough</i>, then maybe wag ‘...<i>Hey, fren...</i>’<br/>but don’t get up! he’ll come to <i>you</i>, n sit down by your side<br/>for I am Cat, n i have learned<br/>emotions best<br/>to hide....<br/>n maybe, in a little while, his love will start to show<br/>n when you’re feeling comfortable, you’ll want to let him know<br/>that he’s the one you’ve waited for! a <i>friendship</i> just like this...<br/>he’ll wrap himself around your heart -<br/>first tail,<br/>then foot,<br/>then<br/><i>kiss</i><br/>&nbsp;<br/>edit (<i>purrfect</i>, u/kitirish)</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">38</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/11pd68c/this_pup_loves_to_copy_his_grandpas_every_move/">This pup loves to copy his grandpa's every move</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11pd68c.jpg" class="media_image" style="max-height:15.5065cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/vladgrinch</p>
+</div>
+<div class="poem_card_2">
+<p class="prompt"><blockquote><i>’Look at those other two slackers, they’re so hip, they’re not following the trend’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">we are the dogs who just observe  -<br/>(we <i>way above</i> this LeArNiNg CuRvE...)<br/>much entertain by golden boy,<br/>who likes to bring our human JoY<br/>n even though the tricks we know,<br/>we much prefer to watch the show<br/>we HiP! n don’t do as we’re told,<br/>(but Love our bro<br/>with heart<br/>of Gold)</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">39</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/nextfuckinglevel/comments/11r55l6/dog_stops_tiger_and_lion_from_fighting/">Dog stops tiger and lion from fighting</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11r55l6.jpg" class="media_image" style="max-height:12.496600000000003cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/MarketBuzz2021</p>
+</div>
+<div class="poem_card_0">
+<p class="prompt"><blockquote><i>’![gif](giphy|SwImQhtiNA7io)’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">dear diary, Today, again,<br/>i Save the Day for BIG CAT fren!<br/>the stripey one got aGiTaTe,<br/>so I step in<br/>to <i>s e p a r a t e</i>...<br/>then Lion try ‘n <i>sneak behind</i><br/>n BiTe his Butt! (he not so kind)<br/>that’s when i used my Doggie <b>ROAR</b><br/>n told them Both to <i>’STOP!! NO MORE!!</i>’<br/>am try to teach them Right from Wrong -<br/>a little bit of <i>kindness</i>, then<br/>to show them I’m<br/>a <i>gentle</i> fren <sup>;@)</sup><br/>prevent them from MiStAkE ATTACK!<br/>(n i don’t wanna be<br/>a <i>snack</i>...)<br/>&nbsp;</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">40</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/11rfpql/my_oil_painting_of_a_sleepy_tabby_kitten_on_a/">My oil painting of a sleepy Tabby kitten on a starry night</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11rfpql.jpg" class="media_image" style="max-height:16.4082cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/sagittariusgallery</p>
+</div>
+<div class="poem_card_3">
+<p class="prompt"><blockquote><i>’Thanks so much!’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">Sleepy kitten, in the night,<br/>Fill  our human hearts with love!<br/>we wonder what you’re dreaming of...<br/>in your tiny kitty curl,<br/>peaceful thoughts around you swirl<br/>snoozing on your flower bed,<br/>colors blurring in your head<br/>captured by the artist’s touch<br/>(thank you, friend, so very much!)</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">41</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/11rueom/my_parents_just_adopted_this_sweet_girl/">My parents just adopted this sweet girl</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11rueom.jpg" class="media_image" style="max-height:13.0808cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/bbycakes1996</p>
+</div>
+<div class="poem_card_0">
+<p class="prompt"><blockquote><i>’boop that nose…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">Look into my big brown eyes,<br/>n tell me what you see...<br/>Human - do you <i>realize</i><br/>how much you mean to me ?<br/>you brought me through that shelter door,<br/>to start a life anew<br/>a <i>family</i> forevermore  -<br/>these eyes are <i>Thanking</i> you!<br/>you maybe think i’m kinda cute,<br/>but it don’t matter much<br/>i’d Love to feel your touch!<br/>so when i look at you above,<br/>i tilt my nose up <sup><i>high...</i>’</sup><br/>my eyes are full of Puppy Love <sup>:@)</sup><br/>(a <i>Boop</i> you can’t deny!)<br/>(<i>she’s beautiful</i> u/bbycakes1996!)</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">42</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/OneOrangeBraincell/comments/11sdrqp/bubby_decided_to_run_out_of_the_kitchen_door_last/">Bubby decided to run out of the kitchen door last night during the storm. Haven’t seen him since after hours of looking. Praying you ask all your one cells to put them all together and send him some positive vibes. He is my best friend. Love you boy</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11sdrqp.jpg" class="media_image" style="max-height:11.4298cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/MackHarrison3260</p>
+</div>
+<div class="poem_card_1">
+<p class="prompt"><blockquote><i>’He may be very near, just hiding...’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">i'm <i>hiding</i>, friend  human - it's scary out here<br/>i got a bit lost, but i feel like you're near...<br/>so much to explore - every smell, every sound,<br/>i know in my heart that i soon will be found<br/>a curious kitten, got scared by the storm,<br/>i just wanna be back inside, where it's warm<br/>i'm trying my hardest.. i miss you, my fren<br/>when i get back home<br/>I'm not Leaving<br/>again!<br/>&nbsp;</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">43</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/11sypbq/couldnt_figure_out_why_my_music_kept_pausing/">couldn't figure out why my music kept pausing</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11sypbq.jpg" class="media_image" style="max-height:9.982cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/drewtheblueduck</p>
+</div>
+<div class="poem_card_3">
+<p class="prompt"><blockquote><i>’Paused with the schnoz…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">I am the Dog ~ Play with me, <i>please ?</i><br/>i see you, human, in your chair,<br/>as at the screen you sit n stare....<br/>n as your life is passing by,<br/><i>I Love you, guy!</i><br/>you listen to the music play,<br/>right by your side<br/>I’m gonna stay<br/>n wait until you NoTiCe Me!<br/>a thought occurs then, suddenly...<br/>so careful i manuever schnoz,<br/>n put distracting tune on <i>pause</i>....<br/><i>Success!</i>  ATTENTION then i get,<br/>n on my Snoot a gentle pet <sup>;@)</sup><br/>he smiles, n tells me I’m Good Boy<br/>my heart again<br/>is Filled<br/>with<br/>JoY<br/>&nbsp;</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">44</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/wholesomememes/comments/11t1s6o/you_go_little_guy/">You go little guy!</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11t1s6o.jpg" class="media_image" style="max-height:17.1702cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/ExpertAccident</p>
+</div>
+<div class="poem_card_1">
+<p class="prompt"><blockquote><i>’he bears the mark. he is the good boy who lived!’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">just look at me now - i am Here to Live on!<br/>i pulled through somehow, n my cancer is Gone <sup>;@)</sup><br/>am bearing the mark on my head of a scar,<br/>you’ll hear in my BaRk just how <i>Lucky</i> you are!<br/>cuz you woulda missed all the things that i do,<br/>(you couldn’t resist all my pEsTeRiNg, too!)<br/>now each time you look  tells me I’m a GOOD BOY<br/>Fills my Dog heart<br/>with JoY!</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">45</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/11t9u95/hi_everyone_my_name_is_walter/">Hi everyone my name is Walter!</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11t9u95.jpg" class="media_image" style="max-height:16.001800000000003cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/brolbo</p>
+</div>
+<div class="poem_card_0">
+<p class="prompt"><blockquote><i>’I loved him in ZZ Top’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">black eyes....<br/>I don't need a reason why-y-y...<br/><i>They come runnin' just as fast as they can</i><br/><i>'Cause every b!tch crazy 'bout a sharp-dressed man</i><br/>no ring....<br/>I ain't missin' not a single thing<br/>Breath stinks... groomed snoot...<br/>When I step out I'm so Heckin cute<br/><i>...They come runnin' just as fast as they can</i><br/>'<i>Cause every bitch crazy 'bout a sharp-dressed man</i><br/>&nbsp;</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">46</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/11um0l5/we_gave_our_dog_a_baguette_and_for_some_reason/">We gave our dog a baguette and for some reason she became absolutely obsessed and carried it everywhere for days. This is a time line, with her finally eating it, we regularly buy her new baguettes now.</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11um0l5.jpg" class="media_image" style="max-height:7.518200000000002cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/AndrewV</p>
+</div>
+<div class="poem_card_3">
+<p class="prompt"><blockquote><i>’It’s a croissant…so many flakes…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">Human friend - no worries, see,<br/>cuz You know what i want!<br/>BaGuEtTe, or BrEaD -  it’s ‘BaKeRy’<br/>but This my fave:<br/><i>’Croissant’</i> <sup>;@)</sup><br/>i’ve come to find i like it best,<br/>n carry it for days...<br/>In n Out, n when i rest<br/>croissant - beside me stays<br/>a <i>little nibble</i> here n there,<br/>i try so hard to keep<br/>when i lie down, i say a prayer<br/>before i go to sleep...<br/>n when my dreams are over, then,<br/>my hopeful heart awakes...<br/>a New one has appeared again!<br/>my <i>Love...</i><br/><i>flakes....</i><br/>&nbsp;</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">47</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/AnimalsBeingDerps/comments/11unxxa/husky_border_collie_chorkie_whod_win/">Husky, Border Collie, Chorkie… Who’d win?</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11unxxa.jpg" class="media_image" style="max-height:12.903cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/OKeoz4w2</p>
+</div>
+<div class="poem_card_2">
+<p class="prompt"><blockquote><i>’Bro, shut up and work’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">my little bro is such a JeRk<br/>(this isn’t ‘Play’ - not Game! is <i>WORK!</i>)<br/>am Collie - I’m the only one<br/>rely on Me ~ the Job is Done!<br/>my husky friend  - he has no clue<br/>what Working dog’s suppose to do!<br/>he chase the little shorty brat,<br/>n he don’t know where Ball is at<br/>but human launches ball again,<br/>(i’ll give a chance for chorkie fren -<br/>he’ll tire fast, n ball he’ll drop)<br/>then it’s All Mine -<br/><i>I Never</i><br/><i>Stop!</i><br/>&nbsp;</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">48</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/11xejyc/baby_gator_in_a_moment_of_bliss/">Baby gator in a moment of bliss</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11xejyc.jpg" class="media_image" style="max-height:15.366800000000001cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/Mr_R0mpers</p>
+</div>
+<div class="poem_card_3">
+<p class="prompt"><blockquote><i>’They speak to me through these ancestral waters! Tell me of my forbearers! Show me who I am to become!’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font"><i>Showered in the Happiness!</i><br/>the toad  - he knows not what I do,<br/>he had enough -<br/>his wet dreams through...<br/>but i hold fast, n gaze above<br/>drenched with Memories of Love!<br/>Enraptured by my ancestry -<br/>they tell me what i’m meant to be!<br/>Emboldened now - a <i>Mighty GATOR!</i><br/><i>i’ll eat you later....</i><br/>&nbsp;</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">49</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/cats/comments/11xm0k4/how_do_i_get_my_cat_to_stop_lying_like_this_its/">How do I get my cat to stop lying like this? It’s making my mother in law uncomfortable</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\11xm0k4.jpg" class="media_image" style="max-height:11.823500000000003cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/MeatballSon</p>
+</div>
+<div class="poem_card_3">
+<p class="prompt"><blockquote><i>’They really need to be better at promoting the mother in law spay program’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">Spay n Neuter - this the way<br/>to make the In-LaWs <i>Go Away!</i><br/>they don’t like pets ? They have no use -<br/>there’s no more need to RePrOdUcE!<br/>but oh, the humans that they gave<br/>Our ‘Moms n Dads’  - Our Lives they save!<br/>but some grow old, n cranky get,<br/>they no more think they want a pet...<br/>but if we patient, we may find<br/>sometimes the Old ones<br/>very kind...<br/>n if we teach them how to ‘feel’<br/>we maybe help<br/>their old hearts<br/>heal</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">50</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/AnimalsBeingBros/comments/1211vdw/merle_wont_move_a_muscle_because_he_doesnt_want/">Merle won’t move a muscle because he doesn’t want to spook Mavis ha ha, he tries to get her to interact with him all the time. He’s infatuated with her.</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\1211vdw.jpg" class="media_image" style="max-height:13.017300000000002cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/Efficient-Arachnid-9</p>
+</div>
+<div class="poem_card_1">
+<p class="poem"><font face="poem_font">I am the dog ~  <i>I dare not move</i>...<br/>my Love for her i try’n prove!<br/>she perches here upon my head,<br/>so i will stay right here<br/>instead...<br/>am wonder if she’ll ever know,<br/>InFaTuAtEd with her <i>so</i>...<br/>perchance, a lowly dog, as me<br/>she chooses for<br/>Eternity!<br/>n as outside the window stare,<br/>I pray Forever she’ll stay there <sup>:@)</sup><br/>my Lover of another feather -<br/>i <i>dream</i> that we’ll<br/>Fly Off<br/>Together!</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">51</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/121k2r7/heres_what_a_baby_camel_looks_like_in_case_anyone/">Here's what a Baby Camel looks like in case anyone is wondering.</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\121k2r7.jpg" class="media_image" style="max-height:11.150400000000001cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/Comfort_Rain</p>
+</div>
+<div class="poem_card_0">
+<p class="prompt"><blockquote><i>’This proves… camels invented the wheel…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">when i was just a baby, small,<br/>i wondered what i’d be<br/>i barely couldn’t walk at all,<br/>my legs tucked under me...<br/>i liked to lie beside my mom,<br/>(my tiny heart would t <sup>H</sup>u <sup>M</sup>p )<br/>she always kept me nice n calm,<br/>but <i>Oh,</i> that MoMmA H <sup>UM</sup>P !<br/>for there upon her back arose<br/>a mighty HILL to climb !<br/>she said ‘<i>No worries... Someday grows</i><br/>Your <sup><sup><i>teeny</i></sup><sup><i>hump!</i></sup>.</sup>. . <i>in time....</i>’<br/>Enraptured me,  i stared in awe<br/>so  Full of All the Feels!<br/>(but wonder if my momma saw<br/>that <i>I</i> was born<br/>with<br/><i>wheels...</i>)</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">52</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/122dqgk/my_kitties_brothers_10_months_are_so/">My kitties (brothers, 10 months) are so connected....they always do the same things! So cuuuuute. (OC)</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\122dqgk.jpg" class="media_image" style="max-height:13.893600000000001cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/animabot</p>
+</div>
+<div class="poem_card_3">
+<p class="prompt"><blockquote><i>’r/shrimping’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">we are the cats ~ two Brothers, see ?<br/><i>purrFect</i> the sYnChRoNiCiTy <sup>;}</sup><sup>;}</sup><br/>Side by side upon the bed,<br/>our legs pulled up against our head<br/>we curl up tight n do the <i>crimp</i>,<br/>we no more cats -<br/>we little Shrimp!<br/>(we not ‘Seafood’ - no mean <i>dEcEiT</i> -<br/>if We <i>See Food</i><br/>We want to<br/><i>EAT!</i>)<br/>&nbsp;</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">53</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/122n8ia/white_dog_with_a_black_head/">White dog with a black head</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\122n8ia.jpg" class="media_image" style="max-height:11.328200000000002cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/karmagheden</p>
+</div>
+<div class="poem_card_3">
+<p class="prompt"><blockquote><i>’The infamous headless puppy…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">I am the pup, so very small,<br/>don’t mean no harm or fear<br/>but when each night the darkness fall<br/>my head<br/>it DiSaPpEaR . . .<br/>n in the distance -  running free,<br/>my body - <i>streaking white!</i><br/>the humans are surprised to see<br/>I LoSe my HeAd at night!<br/>they blink their eyes - in <i>Fear they freeze!</i><br/>their mouths drop Open then....<br/>but when is dawn, is <i>Me</i> they sees<br/>a playful pup again <sup>:@)</sup><br/>they wonder there, in disbelief  -<br/><i>How Do i come A p A r T ??</i><br/>(but in the dark, much Stealth, like thief<br/>I Steal<br/>their human<br/>Heart!)</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">54</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/cats/comments/123iq5n/we_finally_live_in_a_house_where_we_can_let_him/">We finally live in a house where we can let him out but this adorable little asshole attacks other cats on sight. Do we have to keep him in forever?</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\123iq5n.jpg" class="media_image" style="max-height:11.645700000000001cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/greenhedgeman</p>
+</div>
+<div class="poem_card_2">
+<p class="prompt"><blockquote><i>’Invest in a catio… Since he likes being outside, this is your best bet’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">i am the cat you CaN’t CoNtAiN,<br/>(it’s something in my feline brain)<br/>when i am FREE to go outside,<br/>my DoMiNaNcE can’t be denied <sup>;}</sup><br/>them other cats don’t Stand a CHANCE!<br/>(<i>how Dare they do that sideways glance</i>...)<br/>i think they try’n PiCk a FiGhT !<br/>n i ATTACK<br/>with all my might....<br/>still, outside’s where i like to be!<br/>How ‘bout a Catio for me ??<br/>Protected space ~ I’ll Reign SUPREME!<br/>them other cats<br/>can only dream...</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">55</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/cats/comments/125bwst/we_had_visitors_today_and_they_said_our_cat_is/">We had visitors today and they said our cat is too spoiled… I know I can’t be the only one who keeps her cats food & supplies well stocked… 🤨</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\125bwst.jpg" class="media_image" style="max-height:12.2299cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/Natttt26</p>
+</div>
+<div class="poem_card_0">
+<p class="prompt"><blockquote><i>’What’s the point of having a pet if you’re not gonna spoil it’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">There are things you HaVe to GeT -<br/>(How Dare they try ‘n foil !)<br/>What’s the use of having Pet<br/>if you’re not gonna SpOiL ??<br/>they <i>Very RUDE</i> to sTiCk their Nose<br/>in place it don’t belong!<br/>THIS MY FOOD! is where it goes <sup>;}</sup><br/>(these ‘visitors’ are Wrong!)<br/>neatly stacked upon the shelf<br/>(I know <i>I’m</i> Here to Stay...)<br/>Keep oPiNiOnS to yourself<br/>or Please<br/>just <i>Go AwAy !</i></font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">56</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/125m2vv/cows_enjoying_their_brush/">Cows enjoying their brush</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\125m2vv.jpg" class="media_image" style="max-height:14.2492cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/lnfinity</p>
+</div>
+<div class="poem_card_2">
+<p class="prompt"><blockquote><i>’If it hits the spot then I'm not Mooving’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">This the thing we like a lot -<br/>the humans call it ‘BrUsH’<br/>Any time it HiTs the SpOt<br/>it gives us Such a <i>rush</i>...<br/>n as it’s turning round n round,<br/>we press against the groove...<br/>n when the perfect spot we found<br/>we Stay<br/>n dare not <i>mooove</i>....<br/>against the EcStAsY we lean!<br/>it rubs our bodies, hairy<br/><i>Udder Bliss</i> we’ve never seen -<br/>this Brush is<br/>LegendAiRy!</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">57</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/cats/comments/125th42/my_cat_has_severe_separation_anxiety_i_combat/">My cat has severe separation anxiety. I combat this by taking him EVERYWHERE with me. Am I doing the right thing?</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\125th42.jpg" class="media_image" style="max-height:12.725200000000001cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/zebrasprite</p>
+</div>
+<div class="poem_card_2">
+<p class="prompt"><blockquote><i>’I am a very special cat indeed…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">I am the cat ~ so wise, indeed<br/>dear friend, I know it’s Me you need<br/>you take me with you Everywhere!<br/>my Love for you has no compare <sup>;}</sup><br/>we keep each other safe, it’s true,<br/>but there’s some things that you should do<br/>a harness or a leash to hold<br/>in case, sometime, i’m feeling Bold<br/>for Cats Will <i>Cat</i> - DiStRaCtiOnS see<br/>(some Killed by CuRiOsiTy...)<br/>so hook me up, n latch me on<br/>if I<br/>were<br/>gone...</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">58</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/natureismetal/comments/125wb51/mother_elephant_transports_her_deceased_offspring/">Mother elephant transports her deceased offspring (WARNING: graphic and sad)</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\125wb51.jpg" class="media_image" style="max-height:16.6749cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/SinjiOnO</p>
+</div>
+<div class="poem_card_2">
+<p class="prompt"><blockquote><i>’We know how we will feel in end and yet, we take them home anyways...’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">you knew what you were in for when you brought me home that day,<br/>you felt the pain of loss before,<br/>but <i>loved me</i><br/>anyway!<br/>we dogs don’t last forever, n our years on earth are few<br/>but all this time, i’m Lucky<br/>cuz i’m spending it<br/>with You</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">59</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/AnimalsBeingBros/comments/1263lmr/merle_loves_when_mavis_decides_to_nest_on_his/">Merle loves when Mavis decides to nest on his curly head.</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\1263lmr.jpg" class="media_image" style="max-height:13.753900000000002cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/Efficient-Arachnid-9</p>
+</div>
+<div class="poem_card_1">
+<p class="prompt"><blockquote><i>’Oh to be a little yellow bird contently nesting atop the curly head of a dog…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">oh, to be a little bird<br/>atop a curly head...<br/>contented, me - my nest is furred<br/>upon my doggie bed<br/>n as we laying down to sleep<br/>the day comes to an end<br/>Forever mine, this place to keep<br/>I’m <i>safe</i><br/>on my<br/>Best friend<br/>&nbsp;<br/><i>inspired by</i> u/BattlestarDystopia<br/><i>i love Merle & Mavis</i>, u/Efficient-Arachnid-9  <i>So nice to see them again!</i></font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">60</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/127fecz/whats_better_than_a_cat/">What's better than a cat?</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\127fecz.jpg" class="media_image" style="max-height:13.0808cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/vanHarten</p>
+</div>
+<div class="poem_card_3">
+<p class="prompt"><blockquote><i>’They look like two drunk buddies’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">Lean on me, brother - i’ll show you the way...<br/>cuz there is no other beside you today<br/>n you might forget what a GoOd TiMe we had<br/>but i’ll never let you<br/>fall<br/>down<br/>when you’re sad...<br/>we Sang thru the night, n we <i>Howled</i> at the moon!<br/>but then it got light  ~<br/>it was over too soon...<br/>no words now are spoken,<br/>we <i>vented</i>, for fun...<br/>two old friends,<br/>hearts broken...<br/>a new day’s<br/>begun!</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">61</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/127rvm3/first_time_seeing_such_a_unique_cat_its_a_wolf_cat/">First time seeing such a unique cat. It's a wolf cat.</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\127rvm3.jpg" class="media_image" style="max-height:12.903cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/ilovetoeatpussy_</p>
+</div>
+<div class="poem_card_1">
+<p class="prompt"><blockquote><i>’that’s a rat cat’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">either is WrOnG, because I am a Cat <sup>;}</sup><br/>my face kinda Scary, my paws are strange, too<br/>but You look the Same when I’m looking at you<br/>You humans can’t hide what we  Cats know you are,<br/>no matter ApPeArAnCe  -<br/>you’re all just ‘on par’...<br/>your shape or your size, WiThOuT or With hair,<br/>your age or your color -<br/>the clothes that you wear<br/>no judgy by gender - no matter to us,<br/>you sometimes ignore us, but some make a Fuss...<br/>but We can see <i>deeper</i>, cuz We Cats are Smart<br/>we only choose humans<br/>with Love<br/>in their heart</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">62</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/StartledCats/comments/128hn6o/the_definition_of_this_sub/">The definition of this sub</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\128hn6o.jpg" class="media_image" style="max-height:18.922800000000002cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/joao7yt</p>
+</div>
+<div class="poem_card_3">
+<p class="prompt"><blockquote><i>’crab cats…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">when i get sTaRtLeD i hunch up my back<br/>Defend like a CRAB ! i prepare for <i>ATTAC...</i><br/>neutralize threat as i’m holding my stance<br/>No one comes Near...<br/><i>they Dare Not</i><br/><i>take a Chance...</i></font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">63</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/cats/comments/128hv2s/how_me_and_my_cats_sleep_at_night/">How me and my cats sleep at night...</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\128hv2s.jpg" class="media_image" style="max-height:17.1702cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/paoea</p>
+</div>
+<div class="poem_card_3">
+<p class="prompt"><blockquote><i>’“How my cats sleep while I try to…*”’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">when you’re laying down to sleep,<br/>upon your bed we’re going to creep<br/>n as you try n get some rest,<br/>we snuggle close against your chest<br/>a purrfect spot beside you form,<br/>we taking turns in place that’s warm<br/>no need for sleep - no, not for you<br/>We making All your Dreams<br/>come True!</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">64</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/128rhj8/verdict_not_guilty/">Verdict: Not Guilty</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\128rhj8.jpg" class="media_image" style="max-height:14.833400000000001cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/Walkenator25</p>
+</div>
+<div class="poem_card_2">
+<p class="prompt"><blockquote><i>’I’m genuinely wondering what that is’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">you ask me ‘<i>wHaT iS iT ??’</i>  well, how should I know ?<br/>am feeling the shameful <sup>:@(</sup><br/>the Guilt overflow..<br/>your voice it sounds AnGrY - am one sorry pup<br/>i drop to the floor,<br/>n i lie<br/>belly up...<br/>so maybe i did it.. i kinda forget<br/>whatever, I’m Sorry...<br/>can i get a pet ?<br/>don’t tempt me with fluffy - i’ll rip it apart<br/>but please stop the scolding<br/>it’s breaking my heart</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">65</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/129mquq/duck_runs_in_a_marathon_and_gets_felicitated/">Duck runs in a marathon and gets felicitated!</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\129mquq.jpg" class="media_image" style="max-height:12.2045cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/Sera0Sparrow</p>
+</div>
+<div class="poem_card_1">
+<p class="poem"><font face="poem_font">oh, gosh - I’m so <i>ExCiTeD!</i><br/>With the Human friends i run<br/>(so Glad i was invited,<br/>cuz i sure am having Fun!)<br/>n Look - i’m keeping up the <i>Pace</i>  -<br/>(they gave me special shoes)<br/>I think I gonna <i>WIN the Race</i> -<br/>I’m gonna Make the NEWS!!<br/>..I  fLaP my WiNgS ~ the End is NEAR!<br/>no fowl words need be said...<br/>(make sure to Everyone it’s clear<br/>that <i>I</i> come out <i>ahead...</i>)<br/>a Medal round my Neck!<br/>oh, Gosh, i feel Just Ducky, see?<br/>my mom is Proud as Heck <sup>:(l)</sup><br/>a ReGiStRaTiOn fee ? ...<br/>i’m sorry,<br/>Oversight, you see...<br/>just put it on<br/>my bill...</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">66</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/129l47o/found_in_the_woods_and_changed_my_life_i_think/">Found in the woods and changed my life. I think she’s a collie? (Oc)</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\129l47o.jpg" class="media_image" style="max-height:14.9223cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/LolyAdams</p>
+</div>
+<div class="poem_card_1">
+<p class="prompt"><blockquote><i>’I know collies are considered very intelligent working dogs, but I didn’t think they could cook.’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">as i sit upon the chair,<br/>n watch the things you do<br/>i know there’s Something cookin’ there -<br/>i smell <i>delishus</i> stew <sup>;@)</sup><br/>am try to be oBeDiEnT -<br/>I look at you above<br/>i add my best ingredient -<br/>a dose of Puppy Love!<br/>n everything tastes better when<br/>you share a little T a S t E . . .<br/>Don’t let it go to waste!</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">67</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/12ao6ib/oc_the_airbnb_host_didnt_tell_us_was_a_shared/">[OC] The Airbnb host didn’t tell us was a shared property</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12ao6ib.jpg" class="media_image" style="max-height:11.417100000000003cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/Schmoopy21</p>
+</div>
+<div class="poem_card_3">
+<p class="prompt"><blockquote><i>’I always thought he was just being coy like "I'm interested but trying NOT to look as such’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">oh, hey...so whatchu eating there ?<br/>it’s Me <sup>:@)</sup><br/>I’m over here....<br/>no i wont BeG, n i don’t Care,<br/>i just like to be here....<br/>(am try hard not to stare..)<br/>only if you could<br/>you wanna<br/>maybe<br/><i>share ?</i><br/>n as i sit n pLaY iT cOoL,<br/>i try hard not to hover...<br/>but then -<br/><i>Oh No!</i><br/>here comes the <i>drool</i><br/>&nbsp;<br/>. . . i think i blew my cover</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">68</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/AnimalsBeingBros/comments/12bjsaa/authorities_say_the_familys_dog_a_black_lab_never/">"[Authorities] say the family's dog, a black Lab, never left his side when he went missing after wandering away from his home." Authorities find 4-year-old boy lost in the woods with his family dog.</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12bjsaa.jpg" class="media_image" style="max-height:10.032800000000002cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/in_rainbro</p>
+</div>
+<div class="poem_card_0">
+<p class="prompt"><blockquote><i>’What a good boy’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">i don’t know what happened...we wandered too far,<br/>i knew mom n dad wouldn’t know where we are<br/>but i never left you! cuz you are so small,<br/>i tried to be good, n not worry at all...<br/>but we were alone, n our time outside grew<br/>you started to cry when you lost your small shoe<br/>but still i stayed with you, as long as i could<br/>i knew in my heart<br/>what it means<br/>to be <i>good..</i><br/><i>Oh, Mom must be Crying</i> i thought in my head<br/>n dad - very worried, n so full of dread<br/>but then came the HUMANS! n i Leaped for JoY!<br/>n finally<br/>Everyone<br/>called me</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">69</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/cats/comments/12bluel/my_cat_helps_me_with_water/">my cat helps me with water</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12bluel.jpg" class="media_image" style="max-height:16.2685cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/Ok_Plate_6606</p>
+</div>
+<div class="poem_card_1">
+<p class="prompt"><blockquote><i>’Color me impressed that the cat knew to stop before it filled over’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">I fill to the TOP<br/>(are you CoLoReD impress ?)<br/>i know when to STOP<br/>so i don’t make a mess <sup>;}</sup><br/>a paw on the lever<br/>an eye on the fill,<br/>so <i>purrfectly</i> clever<br/>cuz i<br/>Never<br/>spill</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">70</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/12bpnfx/this_is_what_heaven_must_be_like/">This is what heaven must be like</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12bpnfx.jpg" class="media_image" style="max-height:13.931700000000001cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/vanHarten</p>
+</div>
+<div class="poem_card_2">
+<p class="prompt"><blockquote><i>’If your life includes this type of thing, hang onto it and treat it well!’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">as you’re laying down to sleep,<br/>be thankful for a love so deep<br/>it maybe not a human friend -<br/>a Dog will love you<br/>til the end<br/>Perhaps  a girl or boyfriend, too,<br/>(they’ll be iMpReSsEd by what you do)<br/>but if you’re blessed, then you can tell<br/><i>hang on to them, n treat them well</i><br/>No judgement by a cat or pup, (~~...well maybe a cat~~)<br/>but each day, as you’re waking up<br/>they’ll never ask you WhAt YoU dO -<br/>All they want from life<br/>is You!</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">71</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/12c0s3a/i_have_the_urge_to_interrupt_your_prayer/">I have the urge to interrupt your prayer</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12c0s3a.jpg" class="media_image" style="max-height:16.586000000000002cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/Algrinder</p>
+</div>
+<div class="poem_card_0">
+<p class="prompt"><blockquote><i>’The muezzin and the meowzin’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">this is my muezzin - he’s callin for prayer<br/>but <i>I’ll</i> do the choosin’ (he likes when i’m there)<br/>he has the best voice, so i climb up his shoulder<br/>He is my Choice as the SaCrEd CaT holder <sup>;}</sup><br/>the others don’t speak, n their eyes close awhile<br/>(sometimes they <i>peek</i>, n i see a small <i>smile...</i>)<br/>i’m trying my best! kitten cuteness i’ve oozed<br/>they know they’ve been <i>blessed</i><br/>cuz i left them<br/>a<i>mew</i>sed</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">72</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/HumansBeingBros/comments/12c6sqz/veterinarians_saving_a_dog_that_choked_on_a_toy/">Veterinarians saving a dog, that choked on a toy.</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12c6sqz.jpg" class="media_image" style="max-height:14.9223cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/UndilutedTruthBACKUP</p>
+</div>
+<div class="poem_card_3">
+<p class="prompt"><blockquote><i>’I bet that was a satisfying feeling when she went home that day.’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">dear diary, you won’t beLieve my MoSt ExCiTiNg day!<br/>it started with my Favrit toy, n i was havin’ Play...<br/>i like to chew it <i>really</i> hard, but Suddenly was STUCK <sup>:@(</sup><br/>i tried to show my humans -<br/>all they said was WAT tHe F<i>K ?!!?!!</i><br/>they seemed a little frightened, n they rushed me to the vet<br/>they laid me down n did <i>massage</i>, until my ToY they get!<br/>so satisfy the feeling, n i’m thankful for this fren<br/>i’m happy to be headin home<br/>so I can ChEw<br/>again...</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">73</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/12cdg9p/the_model/">The model</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12cdg9p.jpg" class="media_image" style="max-height:13.347500000000002cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/theRealNihilist911</p>
+</div>
+<div class="poem_card_3">
+<p class="prompt"><blockquote><i>’My husky every time I try and point a camera at her - smacks it out of my hand…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">GeT the BaLL ! a sTiCk, a ToY !<br/>All those things ~ so much Enjoy!<br/>Give a toss, I Love the Chase<br/>but keep that CaMeRa<br/><i>OuT my Face!</i><br/>that thing you hold - you call it ‘phone’<br/>i know that it is Yours alone!<br/>you TaLk in it - ignore me, then,<br/>so <i>do not Point it At me,</i> ‘fren’!<br/>i cannot BiTe - i cannot <i>chew</i>,<br/>that Thing goes <i>EVERYWHERE</i> with You!<br/>so point my way, n understand -<br/>i’m gonna <i>SMACK</i><br/>your human hand!<br/>&nbsp;</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">74</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/12cmscd/the_way_she_watches_him_and_smile/">The way she watches him and smile</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12cmscd.jpg" class="media_image" style="max-height:16.586000000000002cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/fuck-r3ddit</p>
+</div>
+<div class="poem_card_0">
+<p class="prompt"><blockquote><i>’We don’t deserve dogs but they think we do’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">I am the Dog - a Heart of Gold<br/>but I will try my very best<br/>to say You’re <i>Better</i> than the rest!<br/>my heart is true to you alone -<br/>the <i>Bestest friend</i><br/>i’ve Ever known!<br/>so Lucky that you’ve chosen <i>Me</i><br/>I give you Love<br/><i>deservedly</i><br/><i>thank you, once again</i> u/Choppergold - <i>good to see you,  my friend</i></font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">75</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/12d6rv5/this_fella_got_into_a_tent_with_26_soldiers_at/">This fella got into a tent with 26 soldiers, at night, somehow passed the man on a watch duty, climbed into a box with food, ate cheese, cookies, spilled sugar, coffee and fell asleep in that box. And that’s where they found him in the morning.</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12d6rv5.jpg" class="media_image" style="max-height:8.7755cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/Doxun</p>
+</div>
+<div class="poem_card_2">
+<p class="prompt"><blockquote><i>’give that baby some good doggo food, and lots of pets’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">i found a little shelter, with some humans, fast asleep<br/>(i hoped they wouldn’t notice me, so quietly i creeped...)<br/>i found a box of food inside! with cookies n some cheese<br/>it filled my empty tummy,<br/>n it helped my <i>lonely</i> ease...<br/>there’s something goin on out there, too much upset, it seems<br/>but i was happy in my box,<br/>n drifted off in dreams...<br/>next thing i knew  - ExCiTeD voice, n Big Hands picked me up<br/>the humans gathered round me, someone saying ‘<i>Look, a PuP!</i>’<br/>was scared they mad i stole the food, but soon had no regrets<br/>i looked at them with puppy eyes, n i got Lots of pets <sup>:@)</sup><br/>i hope they wanna keep me, i don’t want ‘alone’ no more<br/>am gonna love them Best i can,<br/>cuz that’s what dogs are for...</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">76</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/cats/comments/12dd6sm/my_mum_is_away_this_weekend_this_has_the_note/">My mum is away this weekend & this has the note she’s left on the fridge for my dad.</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12dd6sm.jpg" class="media_image" style="max-height:12.941100000000002cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/Fun_Definition319</p>
+</div>
+<div class="poem_card_2">
+<p class="prompt"><blockquote><i>’We found him on the day our Daisy girl passed away after 19 years. We never thought we would have another so soon but we felt like it was fate that he came into our lives…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">i remember how it happened, when you found me on that day<br/>a tiny kit - alone n scared,<br/>i hoped you’d let me stay...<br/>you talked about a ‘Daisy’ friend, n sounded kinda sad<br/>it seemed there was a cat before,<br/>the <i>best</i> you ever had...<br/>i wondered if i’d measure up, n fill that empty space<br/>now every time you look at me, there’s <i>smiles</i> upon your face<br/>n tho i’m still a little cat, i try n do my part<br/>to fill your life with love n Joy<br/>n heal<br/>your broken heart</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">77</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/12dl3mk/oc_post_the_last_picture_you_took_of_your_pets_no/">[OC] Post the last picture you took of your pet(s). No cheating <3</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12dl3mk.jpg" class="media_image" style="max-height:13.1697cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/ThrowRA-Corleone</p>
+</div>
+<div class="poem_card_3">
+<p class="prompt"><blockquote><i>’My roommate left an empty bucket of cheese puffs out’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">(i cannot get enough!)<br/>i stuck my head in <i>deep</i>, you see<br/>for every cheesy puff . . .<br/>n oh, that T a S t Y orange-y dust!<br/>i needed EvErY LiCk<br/>to get it ALL - i Knew i Must!<br/>that’s when i felt the <i>stick</i>...<br/>so there i was - <i>stuck fast inside!</i><br/>i could not move at all <sup>:@(</sup><br/>the price i paid, the guilt can’t hide,<br/>the <i>search</i><br/>for one<br/>last<br/>ball...</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">78</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/12drwm0/where_did_that_darn_cat_get_to/">Where did that darn cat get to...</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12drwm0.jpg" class="media_image" style="max-height:16.001800000000003cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/Thund3rbolt</p>
+</div>
+<div class="poem_card_1">
+<p class="prompt"><blockquote><i>’What happened to his legs ?’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">n then he DiSaPpEaR !<br/>but now, for friend - my heart it <i>Begs</i><br/>i Like it when he’s near...  <sup>:@/</sup><br/>that sTuPiD Cat!  he <i>taunts me</i> so,<br/>it’s just his way of showing<br/>he likes me!<br/>Why’d he hafta go ?<br/>i do not like ‘not knowing’...<br/>he says that i should FiGhT the ShAvE<br/>i Try my BEST, n I am BRAVE !<br/>(i hope they <i>shave Him</i>, too...)</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">79</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/HumansBeingBros/comments/12dybz7/food_delivery_rider_saves_a_lost_kitten_malaysia/">Food delivery rider saves a lost kitten (Malaysia)</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12dybz7.jpg" class="media_image" style="max-height:12.0013cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/westcoastcdn19</p>
+</div>
+<div class="poem_card_3">
+<p class="prompt"><blockquote><i>’So happy the rider actually took it with them instead of leaving it there.’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">am trying to be calm...<br/>the nOiSeS make me <i>Very fear</i>,<br/>but wait - <i>what’s This??</i> a GIANT friend ?<br/>oh, whatcha gonna do ?<br/>you put me<br/>down<br/>with you...<br/>the world is BIG, n i am <sup><i>smol,</i></sup><br/>i don’t know what i’ll find<br/>i don’t know anyone at all,<br/>you whisk me off n hold me tight -<br/>is this my brand new start ?<br/>so sudden -<br/>everything’s all right<br/>n Happy<br/>is my heart!</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">80</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/cats/comments/12egkkm/why_do_i_seem_to_attract_cats_alot_this_little/">Why do I seem to attract cats alot? This little guy crossed the road and came to me.</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12egkkm.jpg" class="media_image" style="max-height:16.230400000000003cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/4721--Archer--Sir</p>
+</div>
+<div class="poem_card_2">
+<p class="prompt"><blockquote><i>’You're clearly a pussy magnet’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">some humans are magnetic ~<br/>it’s us pussies they attract<br/>a <i>natural aesthetic!</i><br/>i can’t help it but react...<br/>n when they make the <i>pssss-pssss</i> sound,<br/>i get a loving pet <sup>;}</sup><br/>i know a gentle soul i found -<br/>my heart will not forget!</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">81</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/12fmef7/big_guy_needs_some_patting/">Big Guy Needs Some Patting 🐋🤗</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12fmef7.jpg" class="media_image" style="max-height:15.951000000000002cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/yuMyuMKrooravani</p>
+</div>
+<div class="poem_card_2">
+<p class="prompt"><blockquote><i>’How lucky are we, beings that love to pet thing, to live in a world full of things that love to be pet’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">How lucky are we, n don’t ever forget<br/>to live in a world of things <i>needing</i> a pet<br/>a stroke of your hand - just a small gentle touch,<br/>the creatures who <i>crave it,</i> n love it so much<br/>no words need be spoken - it’s all understood<br/>a pet from a human friend tells them they’re Good!<br/>the world is so full of such sweet living things,<br/>such Joy to us All<br/>just a simple pet brings<br/>(<i>love it</i>, u/Icarus_Sky1)</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">82</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/interestingasfuck/comments/12fpeap/walking_skeleton_turns_into_the_most_beautiful/">Walking skeleton turns into the most beautiful husky</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12fpeap.jpg" class="media_image" style="max-height:12.268cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/6aga6yM</p>
+</div>
+<div class="poem_card_2">
+<p class="prompt"><blockquote><i>’If there is a reason to jail someone it’s not for smoking weed it’s for making an animal suffer like that.’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">there’s something called ‘karma’ - it happens, sometimes<br/>for humans who think they CoMMiTeD No Crimes...<br/>for i was a dog, n i didn’t ‘belong’<br/>they just made me feel like i did something wrong <sup>:@(</sup><br/>my life there was fading, i almost gave up<br/>i needed a friend<br/>who could love a sad pup<br/>but then - like an Angel, somebody appeared<br/>n gave me a chance to escape what i feared<br/>with patience n kindness, n arms open wide<br/>they <i>unleashed the Puppy</i> just waiting inside!<br/>they fed me n Loved me - did all that they could<br/>the first time a Friend ever told me I’m <i>GOOD</i> <sup>:@)</sup><br/>my life turned around, just by someone who cares<br/>n as for those ‘humans’ before -</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">83</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/Damnthatsinteresting/comments/12fmxtf/walking_skeleton_turns_into_the_most_beautiful/">Walking skeleton turns into the most beautiful husky</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12fmxtf.jpg" class="media_image" style="max-height:12.5855cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/MoChuis</p>
+</div>
+<div class="poem_card_3">
+<p class="prompt"><blockquote><i>’And a special place in heaven who rejuvenate these babies’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">there’s something called ‘karma’ - it happens, sometimes<br/>for people who think they CoMMiTeD No Crimes...<br/>for i was a dog, n i didn’t ‘belong’<br/>they just made me feel like i did something wrong <sup>:@(</sup><br/>my life there was fading, i almost gave up<br/>i needed a friend<br/>who could love a sad pup<br/>but then - like an Angel, somebody appeared<br/>n gave me a chance to escape what i feared<br/>with patience n kindness, n arms open wide<br/>they <i>unleashed the Puppy</i> just waiting inside!<br/>they fed me n Loved me - did all that they could<br/>the first time a Friend ever told me I’m <i>GOOD</i> <sup>:@)</sup><br/>my life turned around, just by someone who cares<br/>n as for those ‘humans’ before -</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">84</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/12fssz3/my_dog_was_neutered_yesterday_he_hates_a_cone_so/">My dog was neutered yesterday & he hates a cone so I had to come up with a better solution (= the pants). This is his favourite pose. [OC]</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12fssz3.jpg" class="media_image" style="max-height:11.963200000000002cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/Piiipsy</p>
+</div>
+<div class="poem_card_3">
+<p class="prompt"><blockquote><i>’I added the Superman cape…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">am finished with the SuRgEry<br/>my human thought was best<br/>n now he got the suit for me<br/>that’s Better than the rest <sup>:@)</sup><br/>don’t wear no cone around my head -<br/>no, that is Not for me!<br/>much rather wear the Cape instead,<br/>cuz Imma <i>HERO,</i> see ?!<br/>now thru the neighborhood, so brave -<br/>I go where Duty calls!<br/>a <i>SuPeRhErO</i> - here to Save<br/>. . . but i can’t LiCk<br/>my<br/>balls . . .</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">85</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/12gj063/odin_brought_me_almost_every_single_one_of_his/">Odin brought me almost every single one of his toys this morning.</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12gj063.jpg" class="media_image" style="max-height:12.318800000000001cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/tnick771</p>
+</div>
+<div class="poem_card_1">
+<p class="prompt"><blockquote><i>’Good boi wants some play time’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">i brought my toys for you to see -<br/>dear human,<br/><i>will you play with me ?</i><br/>each one my Favrit here, i think,<br/>my carrot n my piggy pink <sup>:@)</sup><br/>a little kong, a tuggy chew,<br/>my monkey friend (he’s tattered, too)<br/>all are Loved, much time well spent<br/>but for a Human friend they’re meant<br/>to give n take! to ToSs, retrieve<br/>you make my doggie heart BELIEVE<br/>they come Alive! you make them <i>Fly</i><br/>it’s much more Fun<br/>with you n i...<br/>You make my <i>every dream</i> come true -<br/>i only want to play with you</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">86</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/12hh8xm/if_you_get_a_wet_toothbrush_and_pet_a_cat_it_it/">If you get a wet toothbrush and pet a cat it, it supposedly reminds them getting clean by their mother</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12hh8xm.jpg" class="media_image" style="max-height:15.0112cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/pietradolce</p>
+</div>
+<div class="poem_card_3">
+<p class="prompt"><blockquote><i>’the expression on that cat looks like its full of nostalgia and missing its mom… I (teared) up a little’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">the Cat who was the ‘mom’...<br/>the way you gently stroke my fur -<br/>it makes me feel so calm....<br/>n suddenly my eyes are wet,<br/>it’s been so many years<br/>but in my heart, i won’t forget<br/>the way she licked<br/>my tears...<br/>(<i>thanks to</i> u/NeverLookBothWays & u/Cat_tophat365247 <i>for the beautiful inspurration</i>)</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">87</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/interestingasfuck/comments/12iiap3/this_owl_had_been_failing_to_breed_for_2_years/">This owl had been failing to breed for 2 years, and while she was flying away, she was given two orphaned chicks. She accepted them as her own ^^</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12iiap3.jpg" class="media_image" style="max-height:13.131599999999999cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/Agnes_06</p>
+</div>
+<div class="poem_card_2">
+<p class="prompt"><blockquote><i>’I guess I’m a mom now…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">it’s time to fly away....<br/>but in my heart i still believe<br/>my dream come true,<br/>someday...<br/><i>Goodbye, sweet home...</i><br/>but Who is Here ?<br/>a <i>Miracle</i> that you appear!<br/>now i will do my very best<br/>to Love n keep you calm...<br/>i’ll snuggle you inside my nest<br/>. . . i guess I am<br/>a Mom</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">88</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/MadeMeSmile/comments/12ifgk7/senior_14yo_dog_ends_last_in_race_but_wins_the/">Senior (14yo) dog ends last in race but wins the crowd 🏆</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12ifgk7.jpg" class="media_image" style="max-height:15.5065cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/SinjiOnO</p>
+</div>
+<div class="poem_card_2">
+<p class="prompt"><blockquote><i>’Its not about winning the race, its about crossing the finish line.’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">Looka Me! I’m in the <i>race!</i><br/>(no matter if it’s called ‘last place’)<br/>the others pass ~ i do not care,<br/>I only see my human there <sup>;@)</sup><br/>her Smiling face - a look so Proud,<br/>i hear the <i>CHEERING</i>  from the  Crowd!!<br/>oh, What a Puppy HIGH i’m on -<br/>n There I Am<br/>on<br/>JUMBOTRON !!</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">89</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/cats/comments/12ihy3n/need_advice_with_an_adopted_stray_cat_from_humane/">Need Advice With an Adopted Stray Cat from Humane Society-Won't Leave the Bathroom After Two weeks Since I brought it Home..(Its an Only Pet)</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12ihy3n.jpg" class="media_image" style="max-height:10.109000000000002cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/Ianmartin573</p>
+</div>
+<div class="poem_card_0">
+<p class="prompt"><blockquote><i>’When we adopted my fuzzy void-butt they handed us a stack of papers/packets, and one was about bonding with the new pet that recommended reading. It included an anecdote about someone who read I think the entirety of War and Peace to their cat.’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">i like to hear your voice<br/><i>alone here</i><br/>is my choice...<br/>not too quiet, not too loud,<br/>n you can pick the book<br/>n please<br/>don’t make me<br/>look<br/>n i’ll pretend that i don’t care,<br/>but as you turn the pages<br/>i’ll let you know<br/>i Like you there....<br/>i’ll love you <i>back</i><br/>in<br/>stages...</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">90</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/AnimalsBeingDerps/comments/12jefoc/soccer_with_emus/">Soccer with emus</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12jefoc.jpg" class="media_image" style="max-height:17.1702cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/westcoastcdn19</p>
+</div>
+<div class="poem_card_2">
+<p class="prompt"><blockquote><i>’WHY ARE THEY KICKING THE EGG???’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font"><i>WHY YOU KICKIN ON THE EGG ??!</i><br/>..no, PLEASE ...Hey, STOP!! C’mON,  i TRIED -<br/>YOU HAVE NO CLUE WHATS THERE INSIDE !!<br/>..All right ... i got it... Let it Be...<br/>No, <i>NOOO! Don’t TaKe AwAy from ME !!</i><br/>WE’RE GONNA B R E A K YOUR HUMAN LEGS!!<br/>are<br/>scrambled<br/>eggs...</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">91</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/12k2rlz/patsy_came_back_today_i_took_yalls_advice_and/">Patsy came back today! I took y’all’s advice and left a bowl of fresh water, grapefruit, and some dried cranberries. I don’t think she likes the grapefruit…</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12k2rlz.jpg" class="media_image" style="max-height:12.8141cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/Sonny_McClain89</p>
+</div>
+<div class="poem_card_3">
+<p class="prompt"><blockquote><i>’I keep glancing out the window to see if she'll come by…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">i thought i saw you watching - were you hoping i came by ?<br/>i’m just a baby possum, n it makes me wonder <i>why</i>...<br/>today you left some treats for me <sup><sup>;)</sup>They</sup>sure are awfully good!<br/>i don’t know how to tell you,<br/>but i’d <i>thank you</i>, if i could...<br/>so if it makes you happy just to see me now n then<br/>(i guess it makes me happy, too, to have a ‘human’ friend)<br/>i’ll come n visit when i can, n stay for just awhile<br/>n we can help each other<br/>as we share<br/>a lonely smile<br/>&nbsp;</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">92</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/12kl8la/murphy_the_bald_eagle_that_was_trying_to_hatch_a/">Murphy, the bald eagle that was trying to hatch a rock, has been given a chick to raise. Here he is feeding it.</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12kl8la.jpg" class="media_image" style="max-height:12.725200000000001cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/slimenite</p>
+</div>
+<div class="poem_card_2">
+<p class="prompt"><blockquote><i>’His face says “where’s my rock at?”’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">i had a rock i sat upon,<br/>i liked the way it felt<br/>but then one day, my rock was gone  -<br/>Now what have i been dealt ??<br/>a <i>cHiCk to raise ??</i> i didn’t Ask!<br/>I Want my ROCK BACK <i>NOW!!</i><br/>i do not want this  ‘Mother task’,<br/>n Heck<br/>I don’t know How...<br/>i made you cry ?<br/>Let’s go...<br/>i’ll teach you how to <i>Fly</i>....<br/>You’re gonna <i>SOAR</i><br/>like Me...</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">93</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/cats/comments/12kp5q0/show_me_your_cutest_sleeping_pictures_of_your_cats/">Show me your cutest sleeping pictures of your cat(s)</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12kp5q0.jpg" class="media_image" style="max-height:15.824000000000002cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/throw-away5627</p>
+</div>
+<div class="poem_card_1">
+<p class="prompt"><blockquote><i>’deep sleep…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">now i lay me down to sleep,<br/>my paws across my face i keep<br/>am making sure my eyes are close -<br/>i like the smell against my nose<br/>as off in peaceful dreams i drift,<br/>remembering  the things i sniffed<br/>but Best of all, the scent of You -<br/>you make my kitten dreams<br/>come true<br/><i>sweet kitty</i> u/dgsphn <sup>;}</sup></font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">94</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/oddlysatisfying/comments/12kw0yy/fallen_tree_swings_back_into_its_old_position/">Fallen tree swings back into its old position after being cut in half</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12kw0yy.jpg" class="media_image" style="max-height:14.071400000000002cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/Morgentau7</p>
+</div>
+<div class="poem_card_3">
+<p class="prompt"><blockquote><i>’The FBI hates this one neat trick…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">my branches used to touch the Sky!<br/>but you thought it was time to die<br/>n so to<br/>cut<br/>me<br/>down<br/>you’d try<br/><i>but I would Rise once more...</i><br/>(the FBI will never know!)<br/>for ThAt is WhErE the BoDiEs go -<br/><i>beneath</i><br/><i>the forest</i><br/><i>floor...</i></font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">95</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/12lulnw/trying_to_come_up_with_a_band_name_and_album/">Trying to come up with a band name and album title for this super group.</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12lulnw.jpg" class="media_image" style="max-height:18.745cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/111ruberducky</p>
+</div>
+<div class="poem_card_1">
+<p class="prompt"><blockquote><i>’Kit T and the Sunshine Pups’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font"><i>Makin’ all the pups</i><br/><i>Get down tonight,</i><br/><i>Get DOWN Tonight!</i><br/>&nbsp;<br/>(Cat, probably...)</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">96</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/12m03q2/i_know_this_is_nothing_special_compared_to_the/">I know this is nothing special compared to the other content here. But I am looking for the neighbors cat these days and never had animal friends so far. And this is such a positive thing in my not so positive life now. It's crazy.</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12m03q2.jpg" class="media_image" style="max-height:9.804200000000003cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/___TheKid___</p>
+</div>
+<div class="poem_card_1">
+<p class="prompt"><blockquote><i>’The love and companionship of an animal who trusts you can shine a light even during your darkest time.’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">i watched you, friend human, when you did not see,<br/>i hoped for a moment when You would watch <i>Me...</i><br/>some humans don’t know everything that they should,<br/>how easy a Pet’s love<br/>can help you<br/><i>feel good</i><br/>no matter how long, maybe just for awhile<br/>give us a chance, n we’ll make your heart Smile!<br/>we’ll light up your day with a glow from within,<br/>n maybe - with Us<br/>your new life<br/>can begin!<br/>&nbsp;<br/>(<i>love it</i> u/spikeymist <sup>;}</sup>A cat or dog <i>deserves you</i> u/___TheKid___ !)</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">97</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/12muw8z/sad_cat/">Sad cat.</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12muw8z.jpg" class="media_image" style="max-height:14.2492cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/fat_old_boy</p>
+</div>
+<div class="poem_card_2">
+<p class="prompt"><blockquote><i>’He’s asking to be petted'...’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">...what are those words you humans say -<br/>those AsKiNg things you do ?<br/>like <i>'Please'</i> n <i>...'would it be OK ?</i>'<br/>all I can say<br/>is <i>mew</i>...<br/>i try 'n change it up a bit<br/>so you can understand<br/>my voice iNfLeCt - so patient sit<br/>n wait to feel your hand<br/>i won't give up! i <i>need</i> so much,<br/>am Asking til i Get...<br/>the sweet reward - your gentle touch<br/>your Answer is<br/>a <i>pet...</i></font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">98</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/12my6vn/feeding_cat_a_treat/">Feeding cat a treat</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12my6vn.jpg" class="media_image" style="max-height:14.7826cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/nikamats</p>
+</div>
+<div class="poem_card_1">
+<p class="prompt"><blockquote><i>’Insert offering here. You have done well my loyal servant. I will allow you to continue to worship me another day.’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">I will lie right here n wait -<br/>your OfFeRiNg anticipate <sup>;}</sup><br/>your Worthiness i then shall judge -<br/>until the Treat<br/><i>i shall not budge</i>...<br/>n if i find it pleases me,<br/>again, you've proven Loyalty!<br/>then I shall deem that it's ok<br/>for you to Worship<br/>One<br/>More<br/>Day....</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">99</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/12o6vld/just_witnessed_the_biggest_heist_of_all_time/">Just witnessed the biggest heist of all time</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12o6vld.jpg" class="media_image" style="max-height:14.655600000000002cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/GlassBitter</p>
+</div>
+<div class="poem_card_1">
+<p class="prompt"><blockquote><i>’He thought he was so slick’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">(she thinks i did not see...)<br/>am gonna make them DiSaPpEaR<br/>much stealth  -<br/><i>so slick i be...</i><br/>am focus on the task at hand,<br/>a gentle <i>r e a c h i n g</i> paw . . .<br/>as on my <sup><i>tippytoes</i></sup>i stand<br/>is Mom...<br/>successful in my quest - i stop...<br/>embarrassed now,<br/>i freeze <sup>:@(</sup><br/>a furrowed brow, the treats i drop</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">100</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/cats/comments/12nzmak/fiancé_died_a_year_and_a_half_ago_from_covid/">Fiancé died a year and a half ago from covid. Whenever I leave her hoodie out, her cat immediately steals it. I never knew how much animals mourn.</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12nzmak.jpg" class="media_image" style="max-height:10.4773cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/Mister_Pianister</p>
+</div>
+<div class="poem_card_1">
+<p class="prompt"><blockquote><i>’she enjoys the familiar scent, like "ah yes, THAT's where the cuddles came from, and the love…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">there’s something here about the scent<br/>that i can’t find no more<br/>i wonder where my human went<br/>who cuddled me<br/>before...<br/>an empty shirt upon the bed,<br/>the smell of her inside<br/>i still prefer up here instead,<br/>my sad<br/>i cannot<br/>hide<br/>i don’t know why she went away,<br/>but comfort here i find<br/>the scent of her will always stay -<br/>the love she left<br/>behind</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">101</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/12o7f3o/beaver_carrying_a_carrot_and_a_head_of_lettuce/">Beaver carrying a carrot and a head of lettuce back to his home</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12o7f3o.jpg" class="media_image" style="max-height:12.318800000000001cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/pietradolce</p>
+</div>
+<div class="poem_card_2">
+<p class="prompt"><blockquote><i>’Someone get this beaver a cart...’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">the Wife  - she shend to gro'shry shtore,<br/>(she <i>Alwaysh Eating</i> more n More...)<br/>my armsh are Full, my feetsh they Flop,<br/>but worshst of all<br/>the lettush<br/>drop<br/>the carrot schtick in mouth i hold,<br/>the pavement wet, n i am cold<br/>but i won't quit! i will not resht,<br/>cuz Lettush what<br/>she  like the <i>Besht</i><br/>Deliver to the wife - my goal!<br/>(n if it dropsh, am gonna <i>roll</i>)<br/>don’t wanna <i>b r e a k</i> her beaver heart<br/>i sthure could usthe<br/>a G0d DaMn Cart...</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">102</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/cats/comments/12odh9j/if_i_go_slow_mom_wont_noice_me_getting_on_her_lap/">“If I go slow mom won’t noice me getting on her lap” -my cat</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12odh9j.jpg" class="media_image" style="max-height:15.2398cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/DrTreesus</p>
+</div>
+<div class="poem_card_2">
+<p class="prompt"><blockquote><i>’Mission Impossible..’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">a Mission so <i>Impawssible</i> -<br/>the mom must not suspect...<br/>her arm is barely crossable<br/>without a move detect...<br/>the only motion - in my eyes,<br/><i>maintain the purrfect calm...</i><br/>Success! as i obtain the prize -<br/><i>Reward</i>  -<br/>the Lap of Mom<br/>&nbsp;<br/><i>...such stealth</i> u/DrTreesus <sup>;}</sup><i>please tell sneak boi i love him</i></font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">103</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/12pbwwk/my_cat_louie_was_messing_around_with_toilet_paper/">My cat Louie was messing around with toilet paper and I decided to tie a loose "bow" around his neck to see what it looked like.. It's been an hour. He absolutely REFUSES to let me remove it.</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12pbwwk.jpg" class="media_image" style="max-height:10.5662cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/ThrowAwayNzProblem</p>
+</div>
+<div class="poem_card_2">
+<p class="prompt"><blockquote><i>’ I went to remove his dapper collar…and he woke right tf up and just glared at me. I could feel him writing my obituary with just the side eye..’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">now i lay me down to sleep,<br/>my PaPeR BoW forever keep <sup>;}</sup><br/>so happy, me, in purrfect dreams -<br/>the toilet paper <i>Ever streams</i>... @@@@@<br/>so comforting, around my neck<br/>i slumber deep...<br/>til WaT tHe HECK ??<br/>the Human’s here - <i>My Bow is GONE!!</i><br/>(I Wanted it to be <b>LEFT ON</b>...)<br/>the plot of my <i>retaliate</i>...<br/>you paid your Life<br/>for one<br/>small<br/>bow...</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">104</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/12pbwwk/my_cat_louie_was_messing_around_with_toilet_paper/">My cat Louie was messing around with toilet paper and I decided to tie a loose "bow" around his neck to see what it looked like.. It's been an hour. He absolutely REFUSES to let me remove it.</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12pbwwk.jpg" class="media_image" style="max-height:9.715300000000003cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/ThrowAwayNzProblem</p>
+</div>
+<div class="poem_card_1">
+<p class="prompt"><blockquote><i>’You’ve captured that something special he has in his eyes…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">as i sit n do the pose,<br/>the bow around my neck<br/>the look upon my face - it shows<br/>that I am PROUD as Heck <sup>:}</sup><br/>the artist fren - they realize<br/>(they’ve <i>captured</i> it, you see ?)<br/>that <i>Something Special</i> in my eyes -<br/>the Meowsterpiece<br/>is Me !<br/>n someday,  when i’m gone away<br/>for my eternal nap<br/>my <i>memory</i>  with you will stay<br/><i>Adorned</i><br/>in toilet<br/>wrap<br/><i>inspired by</i> u/segosegosego & u/NoItsNotThatJessica ~ <i>he’s beautiful</i> u/ThrowAwayNZProblem</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">105</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/12ps20z/i_heard_a_thump_at_the_window_and_was_shocked_to/">I heard a thump at the window and was shocked to find…</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12ps20z.jpg" class="media_image" style="max-height:4.990899999999999cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/Texas_OT</p>
+</div>
+<div class="poem_card_3">
+<p class="prompt"><blockquote><i>’twas a hard reboot… necessary after a crash with Windows’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">Dear diary... i feel so dumb -<br/>a baby bird, with wings that <i>hummm</i><br/>into the window, clear, i flew!<br/>(perhaps a bit of dirt will do...)<br/>but there i was - a bird so small,<br/>who barely ever flew at all<br/>a bright spring day - so much excite<br/>as eagerly my wings took flight!<br/>intoxicated by the scent,<br/>i blindly <i>CRASHED</i><br/>n<br/>down<br/>i<br/>went<br/>n then, around me - Brightest Light!<br/>angelic voice said ‘<i>it’s all right...</i>’<br/>i thought<br/>i died... i understand....<br/>but then a <i>gentle HuMaN HaNd!</i><br/>in fear i froze... was i still <i>dead?</i><br/>it Lifted me<br/>to LIFE, instead!<br/>n in a <i>humming</i> dreamy trance,<br/>Reboot - refresh - a second chance!<br/>then off i flew, so OverJoyed <sup><sup>;></sup></sup><br/>those Windows CLEAN<br/>i Must<br/>avoid</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">106</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/MadeMeSmile/comments/12q3e94/heartwarming_transformation/">Heartwarming Transformation</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12q3e94.jpg" class="media_image" style="max-height:16.586000000000002cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/ArmNo210</p>
+</div>
+<div class="poem_card_3">
+<p class="prompt"><blockquote><i>’Look at that coat’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">i wished that <i>Somebody</i> could take it away...<br/>hungry, neglected - my puppy heart broken,<br/>never a kind word<br/>to me<br/>had been spoken...<br/>slowly n patient, you turned me around <sup>:@)</sup><br/>beneath all the sad a New <i>changed</i> pup was found!<br/>just look at my coat! what i used to dream of -<br/>a face full of Happy<br/>a heart full of Love!</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">107</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/12qgrbi/scaring_hampter_3/">scaring hampter! :3</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12qgrbi.jpg" class="media_image" style="max-height:9.842300000000002cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/PewPewAnimeGirl</p>
+</div>
+<div class="poem_card_2">
+<p class="prompt"><blockquote><i>’My uncle, Gus Lacey, once stopped his hamster's heart just by staring at it…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">i was the ham -<br/>so tiny, me<br/>(no longer am,<br/>cuz Ded i be)<br/>the uncle <i>stare</i> -<br/>my heart it STOP . . .<br/>an eViL gLaRe<br/>n then<br/>i<br/>drop . . .<br/><sup>:(</sup><br/>but Heaven brings<br/>a heart that heals!<br/>with Angel wings<br/><i>i spin my wheels...</i><br/>for Gus, it’s bleak -<br/>i hope he hears<br/>my Wheels that <b>sQuEaK</b><br/>n <i>bleed</i><br/>his ears<br/>&nbsp;</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">108</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/interestingasfuck/comments/12qx9ge/i_made_my_pup_olive_this_tennis_ball_catapult/">I made my pup Olive this tennis ball catapult</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12qx9ge.jpg" class="media_image" style="max-height:15.2398cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/GoesUp</p>
+</div>
+<div class="poem_card_3">
+<p class="prompt"><blockquote><i>’“Bet you can’t “fits” here mittens”…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">I am the Cat... so much <i>intrigue</i><br/>the DoPeY pup thinks he’s ‘BiG League’<br/>the human make this Stupid thing,<br/>for simple dog - <i>EnJoYmEnT</i> bring<br/>n yet he tries to <i>lure me in!</i><br/>i walk away<br/>with clever grin...<br/>so <i>easy</i> me, for him to dupe -<br/>when he don’t see<br/><i>i’ll LOAD</i><br/><i>with POOP...</i></font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">109</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/AnimalsBeingDerps/comments/12qytp7/waking_up_22_years_old_anteater_at_greensboro/">Waking Up 22 Years Old Anteater at Greensboro Science Center</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12qytp7.jpg" class="media_image" style="max-height:16.9924cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/ltachi15</p>
+</div>
+<div class="poem_card_2">
+<p class="prompt"><blockquote><i>’…just hold that food near my face’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">just hold that food here by my face,<br/>cuz i won’t leave my sleeping place<br/>my body’s old - for sleep it begs,<br/>i’m cuddled up in arms n legs<br/>it’s hard to tell just wHiCh  is WhAt -<br/>all covered by my Hairy butt<br/>(you must admit<br/>i’m kinda cute...)</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">110</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/12rkfqn/kingfisher_frozen_to_a_bridge_gets_its_feet/">Kingfisher frozen to a bridge gets its feet thawed out & freed by a kindly gentleman</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12rkfqn.jpg" class="media_image" style="max-height:11.239300000000002cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/pastebluepaste</p>
+</div>
+<div class="poem_card_0">
+<p class="prompt"><blockquote><i>’Looks like the little guy was all twisted around on that rail…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">n rested on this rail<br/>but something’s wrong - i am not sure,<br/>my wings can only <i>FLAIL</i>...<br/><i>my feet stuck fast!</i> i try n try,<br/><i>i do not understand...</i><br/>i <sup><i>squeak</i></sup>in fear - <i>i wanna FLY!!</i><br/>a human hand .. ?<br/>it’s <i>holding</i> me, in <i>FiGhT or fLiGhT</i><br/>i Still can’t get away!!<br/>but then - relax... it seems  alright,<br/>this human is ‘ok’<br/>a bit of warmth comes over me,<br/>i think i’m gonna melt ...<br/>n then, i FLY AWAY - <i>I’m FREE !!</i><br/>Love<br/>i felt ?</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">111</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/12svagp/what_name_do_you_suggest_for_this_little_guy_oc/">What name do you suggest for this little guy? [OC]</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12svagp.jpg" class="media_image" style="max-height:17.576600000000003cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/Xiluchi</p>
+</div>
+<div class="poem_card_0">
+<p class="prompt"><blockquote><i>’William Murderface’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">You can call me ‘William’, maybe ‘Willy’, even ‘Will’...<br/>no matter what you name me,<br/>i’ll just wanna <i>M u R d E r</i> still...<br/>n no, i won’t stay on the floor - prefer the desk instead<br/>WhAt NaMe Do I SuGgEsT for YoU ?<br/>am gonna call you<br/>DeD</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">112</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/12svf0n/wow_what_a_handsome_doggo/">"Wow!!! What a handsome doggo!"</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12svf0n.jpg" class="media_image" style="max-height:13.0808cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/fat_old_boy</p>
+</div>
+<div class="poem_card_0">
+<p class="prompt"><blockquote><i>’Imagine you've never seen a mirror before…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">i am the pup, so very small<br/>i never saw myself at all<br/>what Is a ‘Me’, n Who am I ?<br/>oh, My,<br/><i>OH MY !</i><br/>someone  i <i>never Saw</i> appears!<br/>is <i>shadow fren</i>, with fLoPpY Ears!<br/>i wanna be their Friend, so much <sup>:@)</sup><br/>i <i>s t r e t c h</i> my paw to try n touch...<br/>but when i reach, n hope to pet<br/>the only thing i feel<br/>is<br/>wet<br/>i hope that they come back<br/>again...<br/>&nbsp;</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">113</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/12t7i0r/gandalf_thinks_if_he_moves_super_slowly_ill_let/">Gandalf thinks if he moves super slowly, I’ll let him sit in between me and my laptop</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12t7i0r.jpg" class="media_image" style="max-height:12.141000000000004cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/baroqueen1755</p>
+</div>
+<div class="poem_card_3">
+<p class="prompt"><blockquote><i>’LIFE IS SHORT PET THE KITTY!!!’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">LiFe is ShOrT for you n me -<br/>don’t miss this <i>Opurrtunity!</i><br/>upon your lap i’d love to sit,<br/>so now’s your chance<br/>to PeT the KiT <sup>;}</sup><br/>it doesn’t happen every day,<br/>there’s times you have to be away<br/>so Any passing chance you get<br/>it’s nice to have<br/>a kit to pet<br/>then comes a time, when i am gone,<br/>your thoughts of me will linger on<br/>you’ll miss me then . . . a sad self-pity<br/><i>Wishing</i> you<br/>had Pet the Kitty</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">114</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/12t9h07/patches_was_at_the_richmond_va_animal_care/">Patches was at the Richmond, Va Animal Care facility. He weighs 40lbs (18.1kg) and he just got a home! He’ll be on a special diet to get him to a healthy weight.</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12t9h07.jpg" class="media_image" style="max-height:7.696000000000001cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/mac_is_crack</p>
+</div>
+<div class="poem_card_1">
+<p class="prompt"><blockquote><i>’Oh lawd he comin…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">if you lived here, you’d do the same -<br/>my Feeding time was <i>Great</i>...<br/>it wasn’t them - it’s Me to blame,<br/>but i gained ToO MUCH Weight!<br/>there i was, a lonely cat,<br/>no Exercise for me<br/>Time went by, n I got FAT<br/>it was my Destiny <sup>:{</sup><br/>the more I ate, the more I Weighed<br/>a ViCiOuS cYcLe started<br/>so in the shelter,  there i stayed<br/>alone<br/>n broken hearted...<br/>but then a Human - Challenge Met!<br/><i>Oh, Lawd - She’s chosen ME!!</i><br/>I’m Comin HOME! to be her Pet<br/>so Healthy i will be <sup>;}</sup><br/>there’s Lots n LOTS of Me to Love,<br/>but She insist on ‘Diet’...<br/>but HOME’s what i’ve been <i>dreaming</i> of</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">115</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/AnimalsBeingDerps/comments/12txc32/running_fast_to_save_her/">Running fast to save her!</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12txc32.jpg" class="media_image" style="max-height:17.1702cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/_Mr_Fil_</p>
+</div>
+<div class="poem_card_0">
+<p class="prompt"><blockquote><i>’Those little tippy taps’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">I am the kit, so very small<br/>i love my sister Best of all <sup>;}</sup><br/>but <i>WhAt was THAT??</i> a CrY of FEAR!!<br/>BeLoved Sister<br/><i>DISAPPEAR!!</i><br/>i Race to help - FAST <i>T i p p y - t a p p i n g</i>...<br/>Much PROTEC! Avenge kitnapping!<br/>ATTAC the human - Mighty ROAR!<br/><i>Put her BACK DOWN On the FLOOR!!</i></font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">116</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/aww/comments/12u00wy/a_polar_fox_escaped_from_a_small_zoo_in_germany/">A Polar Fox escaped from a small Zoo in Germany but got tired on the way. A zookeeper took him back. I hope that didn’t disturb his slumber.</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12u00wy.jpg" class="media_image" style="max-height:8.458cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/LanChriss</p>
+</div>
+<div class="poem_card_1">
+<p class="prompt"><blockquote><i>’ It's a long walk home…’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">dear diary, my dream came true -<br/>Today i <i>RAN</i> - Escaped the ZOO!<br/>much wonder, me, of Life outside -<br/>Todays the day i Fin’lly Tried...<br/>i found a tiny hole in fence,<br/>n wandered through a forest, dense<br/>but i got lost along the way,<br/>n found a place where i could lay<br/>exhausted there, i slept<br/>alone<br/>n longed for Only place i’d known...<br/>ADVENTURE for awhile i had,<br/>but life in zoo<br/>is not so bad...<br/>there’s humans there who treat me well<br/>(but now i have a tale to tell...)<br/>alas, i’m much too small to roam<br/>Please pick me up<br/>n take me<br/>Home</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">117</p>
+</div><div class="page">
+<div class="page_inner">
+<h2 class="title"><a class="title_link" href="https://www.reddit.com/r/MadeMeSmile/comments/12umw1v/the_joy/">The joy!</a></h2>
+<br/>
+<div class="media">
+<img src="media_processed\12umw1v.jpg" class="media_image" style="max-height:13.665000000000003cm"/>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+<p class="media_watermark">u/Fair_External_4174</p>
+</div>
+<div class="poem_card_0">
+<p class="prompt"><blockquote><i>’What a happy jackass’</i></blockquote></p>
+<hr style="position:relative;margin-top:8mm;margin-left:8mm;width:90mm;color: #bbb;">
+<p class="poem"><font face="poem_font">i wondered what happened when you went away...<br/>i hoped you’d come back, n i’d see you, someday<br/>but i’m just a jackass,<br/>you prob’ly forgot<br/>you’ve more friends than me<br/>Heck, i thought it was her...<br/>it IS!! Oh, dear friend, i don’t Know where you were!!<br/>you cuddled n loved me, when i was so small<br/>i want you to know<br/>You’re my <i>Best Friend of All!</i><br/>so Happy to see you - i’m getting all <i>H o N k E y !</i><br/>just tell me again I’m your Favorite donkey!<br/>the sweetest reunion, two long ago friends<br/>i know in my heart now<br/>that Love never ends</font></p>
+<p class="poem_author">u/SchnoodleDoodleDo</p>
+<img src="img/pin.png" class="pin_top_left"/>
+<img src="img/pin.png" class="pin_top_right"/>
+</div>
+</div>
+<p class="page_number">118</p>
+</div><div class="page_cover"></div></body>
+</html>
